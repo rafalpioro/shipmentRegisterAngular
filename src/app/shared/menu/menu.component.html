@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-green">
+  <a mat-button routerLink="/">{{title}}
+    <mat-icon>home</mat-icon>
+  </a>
+
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse justify-content-end"
+    [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a mat-button routerLink="/carrier">Carrier
+          <mat-icon>school</mat-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a mat-button routerLink="/client">Client
+          <mat-icon>filter_none</mat-icon>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a mat-button routerLink="/project">Project
+          <mat-icon>notifications_active</mat-icon>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a mat-button routerLink="/recipient">Recipient
+          <mat-icon>plus_one</mat-icon>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a mat-button routerLink="/shipment">Shipment
+          <mat-icon>person_add</mat-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
