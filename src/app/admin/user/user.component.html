@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name  }} {{ user.email }}  {{ user.password }} {{ user.role.name }}
+  </li>
+</ul>
+
+<ul>
+  <li>{{curUser.name}}</li>
+  <li>{{curUser.role.name}}</li>
+  <li>{{curUser.email}}</li>
+</ul>

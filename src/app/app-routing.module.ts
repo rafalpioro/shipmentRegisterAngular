@@ -5,6 +5,9 @@ import {ClientComponent} from "./client/client.component";
 import {ProjectComponent} from "./project/project.component";
 import {RecipientComponent} from "./recipient/recipient.component";
 import {ShipmentComponent} from "./shipment/shipment.component";
+import {AuthenticationGuard} from "./service/security/authentication-guard";
+import {LoginComponent} from "./login/login.component";
+import {UserComponent} from "./admin/user/user.component";
 
 
 const routes: Routes = [{
@@ -13,15 +16,25 @@ const routes: Routes = [{
 },
   {
     path: 'client',
-    component: ClientComponent
+    component: ClientComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_']}
   },
   {
     path: 'project',
-    component: ProjectComponent
+    component: ProjectComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_']}
   },
   {
-    path: 'recipient',
-    component: RecipientComponent
+    path: 'user',
+    component: UserComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'shipment',
