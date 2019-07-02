@@ -6,6 +6,8 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatCardModule} from '@angular/material/card';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +24,7 @@ import {TokenizerService} from "./service/tokenizer-service";
 import { UserComponent } from './admin/user/user.component';
 import {UserApiService} from "./admin/user/user-api.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,7 @@ import {UserApiService} from "./admin/user/user-api.service";
     ShipmentComponent,
     MenuComponent,
     LoginComponent,
-    UserComponent,
+    UserComponent
 
   ],
   imports: [
@@ -45,7 +48,9 @@ import {UserApiService} from "./admin/user/user-api.service";
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [
     UserApiService,

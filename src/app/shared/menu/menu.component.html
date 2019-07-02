@@ -11,39 +11,52 @@
   <div class="collapse navbar-collapse justify-content-end"
     [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav ">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/carrier">Carrier
           <mat-icon>school</mat-icon>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/client">Client
           <mat-icon>filter_none</mat-icon>
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/project">Project
           <mat-icon>notifications_active</mat-icon>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/user">User
           <mat-icon>notifications_active</mat-icon>
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/recipient">Recipient
           <mat-icon>plus_one</mat-icon>
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a mat-button routerLink="/shipment">Shipment
           <mat-icon>person_add</mat-icon>
         </a>
       </li>
+
+      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+        <a mat-button routerLink="/login">Login
+          <mat-icon>person_add</mat-icon>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a id="logout" (click)="onLogout()"  mat-button routerLink="/login">Logout
+          <mat-icon>person_add</mat-icon>
+        </a>
+      </li>
+
     </ul>
   </div>
 </nav>

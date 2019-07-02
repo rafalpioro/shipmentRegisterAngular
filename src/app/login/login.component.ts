@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Credentials} from "../service/security/credentials";
 import {AuthenticationService} from "../service/security/authentication.service";
+import {NgForm} from "@angular/forms";
+
 
 
 @Component({
@@ -12,12 +14,14 @@ export class LoginComponent implements OnInit {
 
   credentials: Credentials = new Credentials('', '');
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService ) { }
 
   ngOnInit() {
   }
 
-  public login(): void {
+  public login(form: NgForm): void {
+    this.credentials.email=form.value.email;
+    this.credentials.password=form.value.password;
     this.authService.login(this.credentials);
   }
 

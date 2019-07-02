@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {CarrierComponent} from "./carrier/carrier.component";
 import {ClientComponent} from "./client/client.component";
 import {ProjectComponent} from "./project/project.component";
-import {RecipientComponent} from "./recipient/recipient.component";
 import {ShipmentComponent} from "./shipment/shipment.component";
 import {AuthenticationGuard} from "./service/security/authentication-guard";
 import {LoginComponent} from "./login/login.component";
@@ -18,13 +17,13 @@ const routes: Routes = [{
     path: 'client',
     component: ClientComponent,
     canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_']}
+    data: { role: ['ROLE_VIEWER', 'ROLE_USER', 'ROLE_ADMIN']}
   },
   {
     path: 'project',
     component: ProjectComponent,
     canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_']}
+    data: { role: ['ROLE_VIEWER', 'ROLE_USER', 'ROLE_ADMIN']}
   },
   {
     path: 'user',
@@ -38,7 +37,9 @@ const routes: Routes = [{
   },
   {
     path: 'shipment',
-    component: ShipmentComponent
+    component: ShipmentComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_VIEWER', 'ROLE_USER', 'ROLE_ADMIN']}
   },
   {
     path: '',

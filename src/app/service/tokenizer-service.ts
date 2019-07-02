@@ -23,9 +23,4 @@ export class TokenizerService {
     return this.http.post<any>(loginUrl, credentials, httpOptions);
   }
 
-  public logout() {
-    let logoutUrl = API_URL + '/logout';
-    return this.http.get(logoutUrl, {responseType: 'text'});
-  }
-
 }

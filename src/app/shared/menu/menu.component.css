@@ -6,3 +6,7 @@ a{
 .bg-green{
   background-color: darkslategray;
 }
+
+#logout{
+  cursor: pointer;
+}
