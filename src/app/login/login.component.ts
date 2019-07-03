@@ -5,6 +5,7 @@ import {NgForm} from "@angular/forms";
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,6 +14,7 @@ import {NgForm} from "@angular/forms";
 export class LoginComponent implements OnInit {
 
   credentials: Credentials = new Credentials('', '');
+
 
   constructor(private authService: AuthenticationService ) { }
 
@@ -24,6 +26,8 @@ export class LoginComponent implements OnInit {
     this.credentials.password=form.value.password;
     this.authService.login(this.credentials);
   }
+
+
 
 
 }

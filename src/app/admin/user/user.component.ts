@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   users: User[];
   curUser: User;
 
+
   constructor(private userService: UserApiService) { }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class UserComponent implements OnInit {
   }
 
   currentUser() {
-    this.userService.currentUser().subscribe(value => this.curUser = value);
+    this.userService.currentUser(localStorage.getItem("CurrentUser")).subscribe(value => this.curUser = value);
   }
 
 }

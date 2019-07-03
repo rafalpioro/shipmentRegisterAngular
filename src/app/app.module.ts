@@ -23,6 +23,7 @@ import {JwtInterceptor} from "./service/security/jwt-interceptor";
 import {TokenizerService} from "./service/tokenizer-service";
 import { UserComponent } from './admin/user/user.component';
 import {UserApiService} from "./admin/user/user-api.service";
+import { WelcomeComponent } from './shared/welcome/welcome.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {UserApiService} from "./admin/user/user-api.service";
     ShipmentComponent,
     MenuComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    WelcomeComponent
 
   ],
   imports: [

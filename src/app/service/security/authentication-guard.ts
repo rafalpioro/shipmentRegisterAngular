@@ -9,6 +9,7 @@ import {UserApiService} from "../../admin/user/user-api.service";
 @Injectable({ providedIn: 'root' })
 export class AuthenticationGuard implements CanActivate{
 
+
   role: string;
 
   constructor(private authService: AuthenticationService, private router: Router, private userService: UserApiService) {}
@@ -38,8 +39,7 @@ export class AuthenticationGuard implements CanActivate{
     if (allowedRoles == null || allowedRoles.length === 0) {
       return true;
     }
-    this.userService.currentUser().subscribe(value => this.role = value.role.name);
-
+    this.role = localStorage.getItem(AuthenticationService.ROLE_STORAGE_KEY);
     return allowedRoles.includes(this.role);
   }
 

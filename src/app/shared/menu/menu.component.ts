@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthenticationService} from "../../service/security/authentication.service";
 import {Subscription} from "rxjs";
 
@@ -9,14 +9,20 @@ import {Subscription} from "rxjs";
 })
 export class MenuComponent implements OnInit {
 
-  title: string = "TeacherApp";
+  title: string = "ShipmentRegister";
   navbarOpen = false;
   isAuth: boolean;
+  role: string;
+  isAdmin: boolean;
 
-  constructor(private authService: AuthenticationService) { }
+
+  constructor(private authService: AuthenticationService) {
+
+  }
 
   ngOnInit() {
     this.isAuth = this.authService.isLoggedIn();
+
   }
 
   toggleNavbar() {
@@ -27,6 +33,11 @@ export class MenuComponent implements OnInit {
     this.authService.logout();
   }
 
+  checkAdmin() {
+    if(this.isAuth == true) {
 
+      return this.isAdmin = (this.role === "ROLE_ADMIN");
+    }
+  }
 
 }
