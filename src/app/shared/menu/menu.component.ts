@@ -40,4 +40,8 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  check() {
+
+  }
+
 }

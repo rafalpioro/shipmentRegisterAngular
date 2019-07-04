@@ -7,18 +7,12 @@ import {TokenizerService} from "../tokenizer-service";
 import * as jwt_decode from "jwt-decode";
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
   static readonly TOKEN_STORAGE_KEY = 'Token';
-  static readonly USER_STORAGE_KEY = 'CurrentUser';
-  static readonly ROLE_STORAGE_KEY = 'Role';
-  static readonly ID_STORAGE_KEY = 'Id';
-
 
   redirectToUrl: string = '/';
 
@@ -29,13 +23,7 @@ export class AuthenticationService {
     this.tokenService.getResponseHeaders(credentials)
       .subscribe((res: HttpResponse<any>) => {
 
-
-
         this.saveToken(res.headers.get('Authorization'));
-        let decodedAccessToken = this.getDecodedAccessToken(this.getToken());
-        localStorage.setItem(AuthenticationService.USER_STORAGE_KEY, decodedAccessToken.sub);
-        localStorage.setItem(AuthenticationService.ROLE_STORAGE_KEY, decodedAccessToken.role);
-        localStorage.setItem(AuthenticationService.ID_STORAGE_KEY, decodedAccessToken.id);
 
 
         this.router.navigate([this.redirectToUrl]);
@@ -55,23 +43,26 @@ export class AuthenticationService {
     return localStorage.getItem(AuthenticationService.TOKEN_STORAGE_KEY);
   }
 
-  public getRole(): string {
 
-    return localStorage.getItem(AuthenticationService.ROLE_STORAGE_KEY);
+  public getEmailFromToken(): string {
+    let decodedAccessToken = this.getDecodedAccessToken(this.getToken());
+    return decodedAccessToken.sub;
   }
 
-  public getCurrentUser(): string {
-    return localStorage.getItem(AuthenticationService.USER_STORAGE_KEY);
+  public getIdFromToken(): string {
+    let decodedAccessToken = this.getDecodedAccessToken(this.getToken());
+    return decodedAccessToken.id;
+  }
+
+  public getRoleFromToken(): string {
+    let decodedAccessToken = this.getDecodedAccessToken(this.getToken());
+    return decodedAccessToken.role;
   }
 
 
   public logout(): void {
 
     localStorage.removeItem(AuthenticationService.TOKEN_STORAGE_KEY);
-    localStorage.removeItem(AuthenticationService.USER_STORAGE_KEY);
-    localStorage.removeItem(AuthenticationService.ROLE_STORAGE_KEY);
-    localStorage.removeItem(AuthenticationService.ID_STORAGE_KEY);
-
 
     this.router.navigate(['/']);
   }

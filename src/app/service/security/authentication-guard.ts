@@ -12,7 +12,7 @@ export class AuthenticationGuard implements CanActivate{
 
   role: string;
 
-  constructor(private authService: AuthenticationService, private router: Router, private userService: UserApiService) {}
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -39,7 +39,7 @@ export class AuthenticationGuard implements CanActivate{
     if (allowedRoles == null || allowedRoles.length === 0) {
       return true;
     }
-    this.role = localStorage.getItem(AuthenticationService.ROLE_STORAGE_KEY);
+    this.role = this.authService.getRoleFromToken();
     return allowedRoles.includes(this.role);
   }
 
