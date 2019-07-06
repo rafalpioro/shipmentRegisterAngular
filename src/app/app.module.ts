@@ -2,10 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import {
+  MatButtonModule, MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule, MatListModule, MatOptionModule, MatPaginatorModule,
+  MatProgressSpinnerModule, MatSelectModule, MatSortModule,
+  MatTableModule
+} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material/card';
 
@@ -24,6 +29,14 @@ import {TokenizerService} from "./service/tokenizer-service";
 import { UserComponent } from './admin/user/user.component';
 import {UserApiService} from "./admin/user/user-api.service";
 import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { AllShipmentsComponent } from './shipment/all-shipments/all-shipments.component';
+import {ShipmentApiService} from "./shipment/shipment-api.service";
+import { AllRecipientsComponent } from './recipient/all-recipients/all-recipients.component';
+import {RecipientApiService} from "./recipient/recipient-api.service";
+import { EditRecipientComponent } from './recipient/edit-recipient/edit-recipient.component';
+import { CountryComponent } from './admin/country/country.component';
+import {CountryApiService} from "./admin/country/country-api.service";
+import { UniqueRecipientValidatorDirective } from './recipient/unique-recipient-validator.directive';
 
 
 @NgModule({
@@ -37,7 +50,12 @@ import { WelcomeComponent } from './shared/welcome/welcome.component';
     MenuComponent,
     LoginComponent,
     UserComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AllShipmentsComponent,
+    AllRecipientsComponent,
+    EditRecipientComponent,
+    CountryComponent,
+    UniqueRecipientValidatorDirective
 
   ],
   imports: [
@@ -52,13 +70,27 @@ import { WelcomeComponent } from './shared/welcome/welcome.component';
     MatInputModule,
     FormsModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatListModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [
+    CountryApiService,
     UserApiService,
+    RecipientApiService,
+    ShipmentApiService,
     TokenizerService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditRecipientComponent]
 })
 export class AppModule { }
