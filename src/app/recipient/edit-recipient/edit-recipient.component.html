@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Edit recipient <span class="green">{{recipient.name}} </span></h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+    <mat-form-field fxFlex="auto">
+      <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="recipient.name" value={{recipient.name}}>
+      <mat-error >
+        <span *ngIf="!form.get('name').valid ">Name is required</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="auto">
+      <input  class="form-control" matInput formControlName="address"   placeholder="Address" [(ngModel)]="recipient.address" value={{recipient.address}} >
+      <mat-error>
+        <span *ngIf="!form.get('address').valid ">Address is required</span>
+      </mat-error>
+    </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select formControlName="country"   placeholder="{{recipient.country.name}}" [(ngModel)]="recipient.country">
+      <mat-option *ngFor = "let country of countries"  [value]="country">{{country.name}}</mat-option>
+      <mat-error >
+        <span *ngIf="!form.get('country').valid ">Country is required</span>
+      </mat-error>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code" [(ngModel)]="recipient.zipCode" value={{recipient.zipCode}}>
+    <mat-error >
+      <span *ngIf="!form.get('zipCode').valid ">Zip code is required</span>
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  </mat-dialog-actions>
+
+
+
+
