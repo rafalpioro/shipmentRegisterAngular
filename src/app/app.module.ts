@@ -37,6 +37,7 @@ import { EditRecipientComponent } from './recipient/edit-recipient/edit-recipien
 import { CountryComponent } from './admin/country/country.component';
 import {CountryApiService} from "./admin/country/country-api.service";
 import { UniqueRecipientValidatorDirective } from './recipient/unique-recipient-validator.directive';
+import { AddRecipientComponent } from './recipient/add-recipient/add-recipient.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { UniqueRecipientValidatorDirective } from './recipient/unique-recipient-
     AllRecipientsComponent,
     EditRecipientComponent,
     CountryComponent,
-    UniqueRecipientValidatorDirective
+    UniqueRecipientValidatorDirective,
+    AddRecipientComponent
 
   ],
   imports: [
