@@ -26,6 +26,13 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field fxFlex="auto">
+    <input  class="form-control" matInput formControlName="city" placeholder="City" [(ngModel)]="recipient.city" value={{recipient.city}}>
+    <mat-error >
+      <span *ngIf="!form.get('city').valid ">City is required</span>
+    </mat-error>
+  </mat-form-field>
+
   <mat-form-field>
       <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code" [(ngModel)]="recipient.zipCode" value={{recipient.zipCode}}>
     <mat-error >

@@ -1,6 +1,6 @@
 <div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER' ">
   <div class="container add-button">
-    <button mat-raised-button (click)="addRecipient()" type="submit" color="primary">
+    <button mat-raised-button (click)="addRecipient()" color="primary">
       <mat-icon>add</mat-icon>
       <span>Add new recipient </span>
     </button>

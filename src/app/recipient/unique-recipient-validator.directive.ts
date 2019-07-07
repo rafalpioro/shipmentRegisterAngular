@@ -7,8 +7,8 @@ import {map} from "rxjs/operators";
 export function uniqueRecipientValidator(recipientService: RecipientApiService) {
   return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
     return recipientService.getRecipientByName(control.value).pipe(
-      map(recipient => {
-        return recipient != null ? {'UniqueRecipientValidator': true} : null;
+      map(recipients => {
+        return recipients != null ? {'UniqueRecipientValidator' : true} : null;
       })
     );
   };
@@ -27,8 +27,8 @@ export class UniqueRecipientValidatorDirective implements AsyncValidator{
   validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>
  {
     return this.recipientService.getRecipientByName(control.value).pipe(
-      map(recipient => {
-        return recipient != null ? {'UniqueRecipientValidator' : true} : null;
+      map(recipients => {
+        return recipients != null ? {'UniqueRecipientValidator' : true} : null;
       })
     );
   }

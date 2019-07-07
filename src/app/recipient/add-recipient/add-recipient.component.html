@@ -1,3 +1,56 @@
-<p>
-  add-recipient works!
-</p>
+<div class="container">
+  <h2 >Add a new recipient</h2>
+  <form  [formGroup]="form" (ngSubmit)="save()">
+    <div fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px">
+
+
+      <mat-form-field fxFlex="auto%"  >
+        <input  class="form-control"  matInput formControlName="name" placeholder="Name" minlength="2" maxlength="80">
+        <mat-error >
+          <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+          <span *ngIf="form.get('name').hasError('UniqueRecipientValidator')">Name already exists</span>
+          <span *ngIf="form.get('name').hasError('minlength') ">City name is too short</span>
+          <span *ngIf="form.get('name').hasError('maxlength') ">City name is to long</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto">
+        <input  class="form-control" matInput formControlName="address"   placeholder="Address"  >
+        <mat-error>
+          <span *ngIf="form.get('address').hasError('required')">Address is required</span>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select formControlName="country"   placeholder="Country">
+          <mat-option *ngFor = "let country of countries"  [value]="country">{{country.name}}</mat-option>
+          <mat-error >
+            <span *ngIf="form.get('country').hasError('required')">Country is required</span>
+          </mat-error>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
+        <input  class="form-control" matInput formControlName="city" placeholder="City">
+        <mat-error >
+          <span *ngIf="form.get('city').hasError('required') ">City is required</span>
+          <span *ngIf="form.get('city').hasError('minlength') ">City name is too short</span>
+          <span *ngIf="form.get('city').hasError('maxlength') ">City name is to long</span>
+
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto">
+        <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code">
+        <mat-error >
+          <span *ngIf="form.get('zipCode').hasError('required') ">Zip code is required</span>
+          <span *ngIf="form.get('zipCode').hasError('minlength') ">Zip code is too short</span>
+          <span *ngIf="form.get('zipCode').hasError('maxlength') ">Zip code is to long</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button class="mat-raised-button"  (click)="close()">Back</button>
+    <button class="mat-raised-button mat-primary" type="submit" [disabled]="!form.valid" (click)="save()">Save</button>
+  </form>
+</div>

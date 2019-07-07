@@ -56,7 +56,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
   }
 
   addRecipient(){
-    this.router.navigate(['']);
+    this.router.navigate(['recipients/add']);
   }
 
   deactivateRecipient(recipient: Recipient){

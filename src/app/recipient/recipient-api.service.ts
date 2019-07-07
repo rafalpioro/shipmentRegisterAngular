@@ -33,8 +33,8 @@ export class RecipientApiService {
     return this.http.patch(this.URL+"/"+id, null);
   }
 
-  getRecipientByName(name: string): Observable<Recipient>{
-    return this.http.get<Recipient>(this.URL, {params: new HttpParams()
+  getRecipientByName(name: string): Observable<Recipient[]>{
+    return this.http.get<Recipient[]>(this.URL+"/name", {params: new HttpParams()
         .append('name', name)} );
   }
 
