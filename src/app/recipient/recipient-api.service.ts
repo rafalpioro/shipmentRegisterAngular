@@ -14,7 +14,7 @@ export class RecipientApiService {
   constructor(private http:HttpClient) { }
 
   allRecipientsWithPagination(page: string, size: string): Observable<Recipient[]>{
-    return this.http.get<[]>(this.URL, {
+    return this.http.get<Recipient[]>(this.URL, {
       params: new HttpParams()
         .append('page', page)
         .append('size', size)
@@ -22,11 +22,11 @@ export class RecipientApiService {
   }
 
   allRecipients(): Observable<Recipient[]> {
-    return this.http.get<[]>(this.URL);
+    return this.http.get<Recipient[]>(this.URL);
   }
 
   addNewRecipient(recipient: Recipient):Observable<any>{
-    return this.http.post<Recipient[]>(this.URL, recipient);
+    return this.http.post<Recipient>(this.URL, recipient);
   }
 
   deactivateRecipient(id: number):Observable<any>{

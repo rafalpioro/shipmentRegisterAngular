@@ -10,6 +10,7 @@ import {UserComponent} from "./admin/user/user.component";
 import {RecipientComponent} from "./recipient/recipient.component";
 import {WelcomeComponent} from "./shared/welcome/welcome.component";
 import {AddRecipientComponent} from "./recipient/add-recipient/add-recipient.component";
+import {AddCarrierComponent} from "./carrier/add-carrier/add-carrier.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,12 @@ const routes: Routes = [
     component: CarrierComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_VIEWER', 'ROLE_USER', 'ROLE_ADMIN']}
+  },
+  {
+    path: 'carriers/add',
+    component: AddCarrierComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_USER', 'ROLE_ADMIN']}
   },
   {
     path: 'clients',

@@ -38,6 +38,13 @@ import { CountryComponent } from './admin/country/country.component';
 import {CountryApiService} from "./admin/country/country-api.service";
 import { UniqueRecipientValidatorDirective } from './recipient/unique-recipient-validator.directive';
 import { AddRecipientComponent } from './recipient/add-recipient/add-recipient.component';
+import { AddCarrierComponent } from './carrier/add-carrier/add-carrier.component';
+import { AllCarriersComponent } from './carrier/all-carriers/all-carriers.component';
+import { EditCarrierComponent } from './carrier/edit-carrier/edit-carrier.component';
+import { CarrierTypeComponent } from './admin/carrier-type/carrier-type.component';
+import {CarrierTypeApiService} from "./admin/carrier-type/carrier-type-api.service";
+import {CarrierApiService} from "./carrier/carrier-api.service";
+import {UniqueCarrierValidatorDirective} from "./carrier/unique-carrier-validator.directive";
 
 
 @NgModule({
@@ -57,7 +64,12 @@ import { AddRecipientComponent } from './recipient/add-recipient/add-recipient.c
     EditRecipientComponent,
     CountryComponent,
     UniqueRecipientValidatorDirective,
-    AddRecipientComponent
+    UniqueCarrierValidatorDirective,
+    AddRecipientComponent,
+    AddCarrierComponent,
+    AllCarriersComponent,
+    EditCarrierComponent,
+    CarrierTypeComponent
 
   ],
   imports: [
@@ -90,9 +102,11 @@ import { AddRecipientComponent } from './recipient/add-recipient/add-recipient.c
     RecipientApiService,
     ShipmentApiService,
     TokenizerService,
+    CarrierTypeApiService,
+    CarrierApiService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import {Country} from "../../model/country";
 })
 export class CountryApiService {
 
-  private URL ="http://localhost:8080/countries";
+  private URL ="http://localhost:8080/admin/countries";
 
   constructor(private http:HttpClient) { }
 

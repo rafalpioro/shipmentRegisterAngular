@@ -1,0 +1,58 @@
+<div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER' ">
+  <div class="container add-button">
+    <button mat-raised-button (click)="addCarrier()" color="primary">
+      <mat-icon>add</mat-icon>
+      <span>Add new carrier </span>
+    </button>
+  </div>
+</div>
+
+<div class="container" fxLayout="column" >
+  <mat-form-field class="filter" fxFlex="auto" fxFlexAlign="center">
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search...">
+  </mat-form-field>
+</div>
+
+<div class="container tbn">
+
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+
+    <div class="spinner-container" *ngIf="!dataSource">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell class="description-cell"
+                *matCellDef="let carrier">{{carrier.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="carrierType">
+      <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let carrier">{{carrier.carrierType.name}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+      <mat-cell *matCellDef="let carrier" >
+        <button class="button" mat-raised-button color="warn" (click)="deactivateCarrier(carrier)" ><mat-icon >delete</mat-icon></button>
+        <button class="button" mat-raised-button color="primary" (click)="openDialog(carrier)"><mat-icon >edit</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER'; else viewer ">
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </div>
+    <ng-template #viewer>
+      <mat-header-row *matHeaderRowDef="displayedColumnsForViewer"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumnsForViewer"></mat-row>
+    </ng-template>
+
+  </mat-table>
+  <mat-paginator  [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+</div>

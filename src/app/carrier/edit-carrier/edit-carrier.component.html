@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Edit Carrier <span class="green">{{carrier.name}} </span></h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field fxFlex="auto">
+    <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="carrier.name" value={{carrier.name}}>
+    <mat-error >
+      <span *ngIf="!form.get('name').valid ">Name is required</span>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select formControlName="carrierType"   placeholder="{{carrier.carrierType.name}}" [(ngModel)]="carrier.carrierType">
+      <mat-option *ngFor = "let carrierType of carrierTypes"  [value]="carrierType">{{carrierType.name}}</mat-option>
+      <mat-error >
+        <span *ngIf="!form.get('carrierType').valid ">Carrier type is required</span>
+      </mat-error>
+    </mat-select>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

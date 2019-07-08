@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {CountryApiService} from "../../admin/country/country-api.service";
 import {Country} from "../../model/country";
 import {Recipient} from "../../model/recipient";
-import {RecipientApiService} from "../recipient-api.service";
+
 
 @Component({
   selector: 'app-edit-recipient',
@@ -17,7 +17,6 @@ export class EditRecipientComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private recipientService: RecipientApiService,
               private dialogRef: MatDialogRef<EditRecipientComponent>,
               private countryService: CountryApiService,
               @Inject(MAT_DIALOG_DATA) public recipient: Recipient) {

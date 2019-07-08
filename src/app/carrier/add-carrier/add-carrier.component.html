@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 >Add a new carrier</h2>
+  <form  [formGroup]="form" (ngSubmit)="save()">
+    <div fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px">
+
+
+      <mat-form-field fxFlex="auto"  >
+        <input  class="form-control"  matInput formControlName="name" placeholder="Name" minlength="2" maxlength="150">
+        <mat-error >
+          <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+          <span *ngIf="form.get('name').hasError('UniqueCarrierValidator')">Name already exists</span>
+          <span *ngIf="form.get('name').hasError('minlength') ">City name is too short</span>
+          <span *ngIf="form.get('name').hasError('maxlength') ">City name is to long</span>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select formControlName="carrierType"   placeholder="carrierType">
+          <mat-option *ngFor = "let carrierType of carrierTypes"  [value]="carrierType">{{carrierType.name}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('carrierType').hasError('required')">Carrier type is required</span>
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <button class="mat-raised-button"  (click)="close()">Back</button>
+    <button class="mat-raised-button mat-primary" type="submit" [disabled]="!form.valid" >Save</button>
+  </form>
+</div>

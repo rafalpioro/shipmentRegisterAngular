@@ -9,8 +9,8 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class UserApiService {
 
-  private URL ="http://localhost:8080/admin/users";
-  private URL1 ="http://localhost:8080/users";
+  private URL ="http://localhost:8080/admin-all/users";
+  private URL1 ="http://localhost:8080/admin/users";
 
   constructor(private http:HttpClient) { }
 
@@ -21,7 +21,7 @@ export class UserApiService {
 
   currentUser(email: string): Observable<User>{
 
-    return this.http.get<User>(this.URL1, {params: new HttpParams().append('email',email)});
+    return this.http.get<User>(this.URL1+'/name', {params: new HttpParams().append('email',email)});
   }
 
 

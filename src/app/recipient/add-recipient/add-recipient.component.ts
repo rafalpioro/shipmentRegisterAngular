@@ -6,7 +6,7 @@ import {Country} from "../../model/country";
 import {Router} from "@angular/router";
 import {Recipient} from "../../model/recipient";
 import {uniqueRecipientValidator} from "../unique-recipient-validator.directive";
-import {validate} from "codelyzer/walkerFactory/walkerFn";
+
 
 @Component({
   selector: 'app-add-recipient',
@@ -31,6 +31,7 @@ export class AddRecipientComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
+      id: [null],
       name: ['',  Validators.required, uniqueRecipientValidator(this.recipientService)],
       address: ['', Validators.required ],
       city: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(60)]],
@@ -47,6 +48,7 @@ export class AddRecipientComponent implements OnInit {
     }, error =>{
       alert("Could not add recipient to database");
     } );
+
   }
 
   close() {

@@ -44,7 +44,10 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.paginator.page
       .pipe(
-        tap(() => this.loadRecipientPage())
+        tap(() => {
+          this.loadRecipientPage();
+
+        })
       )
       .subscribe();
   }
@@ -75,7 +78,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
 
     const dialogConfig = new MatDialogConfig();
 
-    this.recipientService.getRecipientById(recipient.id).subscribe(res => {
+
       this.data = recipient;
 
       dialogConfig.disableClose = true;
@@ -91,10 +94,10 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
           this.data = res;
 
         this.show();
-      }));
-    }, error1 => {
-      alert("Alert form openDialog")
-    });
+      },error1 => {
+          alert("Alert form openDialog")
+        })
+      );
   }
 
 
