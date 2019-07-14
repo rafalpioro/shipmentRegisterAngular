@@ -33,6 +33,6 @@ export class RecipientsDatasource implements DataSource<Recipient>{
       catchError(() => of([])),
       finalize(() => this.loadingSubject.next(false))
     )
-      .subscribe(student => {this.recipientSubject.next(student["content"])});
+      .subscribe(recipient => {this.recipientSubject.next(recipient["content"])});
   }
 }

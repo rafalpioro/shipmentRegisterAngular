@@ -45,6 +45,10 @@ import { CarrierTypeComponent } from './admin/carrier-type/carrier-type.componen
 import {CarrierTypeApiService} from "./admin/carrier-type/carrier-type-api.service";
 import {CarrierApiService} from "./carrier/carrier-api.service";
 import {UniqueCarrierValidatorDirective} from "./carrier/unique-carrier-validator.directive";
+import { AddClientComponent } from './client/add-client/add-client.component';
+import { AllClientsComponent } from './client/all-clients/all-clients.component';
+import { EditClientComponent } from './client/edit-client/edit-client.component';
+import { UniqueClientValidatorDirective } from './client/unique-client-validator.directive';
 
 
 @NgModule({
@@ -69,7 +73,11 @@ import {UniqueCarrierValidatorDirective} from "./carrier/unique-carrier-validato
     AddCarrierComponent,
     AllCarriersComponent,
     EditCarrierComponent,
-    CarrierTypeComponent
+    CarrierTypeComponent,
+    AddClientComponent,
+    AllClientsComponent,
+    EditClientComponent,
+    UniqueClientValidatorDirective
 
   ],
   imports: [
@@ -107,6 +115,6 @@ import {UniqueCarrierValidatorDirective} from "./carrier/unique-carrier-validato
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent, EditCarrierComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent]
 })
 export class AppModule { }

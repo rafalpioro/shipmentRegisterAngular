@@ -10,3 +10,11 @@ a{
 #logout{
   cursor: pointer;
 }
+
+.active-link {
+  color: burlywood;
+}
+
+#admin {
+  background-color: coral;
+}
