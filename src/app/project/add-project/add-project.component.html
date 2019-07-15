@@ -1,0 +1,66 @@
+<div class="container">
+  <h2 >Add a new project</h2>
+  <form  [formGroup]="form" (ngSubmit)="save()">
+    <div fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px">
+
+      <mat-form-field fxFlex="auto"  >
+        <input  class="form-control"  matInput formControlName="number" placeholder="Number" minlength="2" maxlength="20">
+        <mat-error >
+          <span *ngIf="form.get('number').hasError('required')">Number is required</span>
+          <span *ngIf="form.get('number').hasError('uniqueProjectValidator')">Number already exists</span>
+          <span *ngIf="form.get('number').hasError('minlength') ">Number is too short</span>
+          <span *ngIf="form.get('number').hasError('maxlength') ">Number is too long</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto"  >
+        <input  class="form-control"  matInput formControlName="name" placeholder="Name">
+        <mat-error >
+          <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+          <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
+          <span *ngIf="form.get('name').hasError('maxlength') ">Name is too long</span>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="client"  placeholder="Client">
+          <mat-option  *ngFor = "let client of clients"  [value]="client">{{client.name}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('client').hasError('required')">Client is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select formControlName="projectStatus"  placeholder="Project status" [(ngModel)]="selectedProjectStatus" >
+          <mat-option *ngFor = "let projectStatus of projectStatuses"  [value]="projectStatus"  >{{projectStatus.name}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('projectStatus').hasError('required')">Project status is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto">
+        <input [matDatepicker]="picker1" class="form-control" matInput formControlName="startDate" placeholder="Start date">
+        <mat-error >
+          <span *ngIf="form.get('startDate').hasError('required') ">Start date is required</span>
+        </mat-error>
+        <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <div *ngIf="selectedProjectStatus != null && selectedProjectStatus.name == 'delivered'">
+      <mat-form-field fxFlex="auto">
+        <input [matDatepicker]="picker" class="form-control" matInput formControlName="endDate" placeholder="End date">
+        <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      </div>
+
+    </div>
+    <button class="mat-raised-button"  (click)="close()">Back</button>
+    <button class="mat-raised-button mat-primary" type="submit" [disabled]="!form.valid" >Save</button>
+  </form>
+</div>
+

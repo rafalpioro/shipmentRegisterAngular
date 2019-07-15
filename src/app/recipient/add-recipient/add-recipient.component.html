@@ -9,8 +9,8 @@
         <mat-error >
           <span *ngIf="form.get('name').hasError('required')">Name is required</span>
           <span *ngIf="form.get('name').hasError('UniqueRecipientValidator')">Name already exists</span>
-          <span *ngIf="form.get('name').hasError('minlength') ">City name is too short</span>
-          <span *ngIf="form.get('name').hasError('maxlength') ">City name is to long</span>
+          <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
+          <span *ngIf="form.get('name').hasError('maxlength') ">Name is too long</span>
         </mat-error>
       </mat-form-field>
 

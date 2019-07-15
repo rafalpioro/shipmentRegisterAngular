@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
@@ -13,7 +13,8 @@ import {
 } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material/card';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,13 @@ import { AddClientComponent } from './client/add-client/add-client.component';
 import { AllClientsComponent } from './client/all-clients/all-clients.component';
 import { EditClientComponent } from './client/edit-client/edit-client.component';
 import { UniqueClientValidatorDirective } from './client/unique-client-validator.directive';
+import { ProjectStatusComponent } from './admin/project-status/project-status.component';
+import { AddProjectComponent } from './project/add-project/add-project.component';
+import { AllProjectsComponent } from './project/all-projects/all-projects.component';
+import { EditProjectComponent } from './project/edit-project/edit-project.component';
+import { UniqueProjectValidatorDirective } from './project/unique-project-validator.directive';
+import {ProjectApiService} from "./project/project-api.service";
+import {ProjectStatusApiService} from "./admin/project-status/project-status-api.service";
 
 
 @NgModule({
@@ -77,7 +85,12 @@ import { UniqueClientValidatorDirective } from './client/unique-client-validator
     AddClientComponent,
     AllClientsComponent,
     EditClientComponent,
-    UniqueClientValidatorDirective
+    UniqueClientValidatorDirective,
+    ProjectStatusComponent,
+    AddProjectComponent,
+    AllProjectsComponent,
+    EditProjectComponent,
+    UniqueProjectValidatorDirective
 
   ],
   imports: [
@@ -103,10 +116,15 @@ import { UniqueClientValidatorDirective } from './client/unique-client-validator
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRippleModule
   ],
   providers: [
     CountryApiService,
     UserApiService,
+    ProjectApiService,
+    ProjectStatusApiService,
     RecipientApiService,
     ShipmentApiService,
     TokenizerService,
@@ -115,6 +133,6 @@ import { UniqueClientValidatorDirective } from './client/unique-client-validator
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent]
 })
 export class AppModule { }

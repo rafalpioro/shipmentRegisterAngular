@@ -1,0 +1,79 @@
+<div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER' ">
+  <div class="container add-button">
+    <button mat-raised-button (click)="addProject()" color="primary">
+      <mat-icon>add</mat-icon>
+      <span>Add new project </span>
+    </button>
+  </div>
+</div>
+
+
+<div class="container tbn">
+
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
+      <mat-cell class="description-cell"
+                *matCellDef="let project">{{project.number}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let project">{{project.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="client">
+      <mat-header-cell *matHeaderCellDef>Client</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let project">{{project.client.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="projectStatus">
+      <mat-header-cell *matHeaderCellDef>Project Status</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let project">{{project.projectStatus.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let project">{{project.startDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let project">{{project.endDate}}</mat-cell>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+      <mat-cell *matCellDef="let project" >
+        <button class="button" mat-raised-button color="warn" (click)="deactivateProject(project)" ><mat-icon >delete</mat-icon></button>
+        <button class="button" mat-raised-button color="primary" (click)="openDialog(project)"><mat-icon >edit</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER'; else viewer ">
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </div>
+    <ng-template #viewer>
+      <mat-header-row *matHeaderRowDef="displayedColumnsForViewer"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumnsForViewer"></mat-row>
+    </ng-template>
+
+  </mat-table>
+  <mat-paginator [length]="total_count" [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+</div>
