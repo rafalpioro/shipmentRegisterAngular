@@ -15,6 +15,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +58,12 @@ import { EditProjectComponent } from './project/edit-project/edit-project.compon
 import { UniqueProjectValidatorDirective } from './project/unique-project-validator.directive';
 import {ProjectApiService} from "./project/project-api.service";
 import {ProjectStatusApiService} from "./admin/project-status/project-status-api.service";
+import { AddShipmentComponent } from './shipment/add-shipment/add-shipment.component';
+import { EditShipmentComponent } from './shipment/edit-shipment/edit-shipment.component';
+import { TransactionTypeComponent } from './admin/transaction-type/transaction-type.component';
+import {TransactionTypeApiService} from "./admin/transaction-type/transaction-type-api.service";
+import { BranchComponent } from './admin/branch/branch.component';
+import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status.component';
 
 
 @NgModule({
@@ -90,7 +97,12 @@ import {ProjectStatusApiService} from "./admin/project-status/project-status-api
     AddProjectComponent,
     AllProjectsComponent,
     EditProjectComponent,
-    UniqueProjectValidatorDirective
+    UniqueProjectValidatorDirective,
+    AddShipmentComponent,
+    EditShipmentComponent,
+    TransactionTypeComponent,
+    BranchComponent,
+    ShipmentStatusComponent
 
   ],
   imports: [
@@ -118,7 +130,8 @@ import {ProjectStatusApiService} from "./admin/project-status/project-status-api
     MatOptionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
+    MatCheckboxModule
   ],
   providers: [
     CountryApiService,
@@ -130,9 +143,10 @@ import {ProjectStatusApiService} from "./admin/project-status/project-status-api
     TokenizerService,
     CarrierTypeApiService,
     CarrierApiService,
+    TransactionTypeApiService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent, EditShipmentComponent]
 })
 export class AppModule { }

@@ -1,97 +1,113 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxFlexAlign="flex-end">
-  <button mat-raised-button (click)="addShipment()" type="submit"  color="primary">
-    <mat-icon>add</mat-icon>
-    <span>Add new shipment </span>
-  </button>
+<div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER' ">
+  <div class="container add-button">
+    <button mat-raised-button (click)="addShipment()" color="primary">
+      <mat-icon>add</mat-icon>
+      <span>Add new shipment </span>
+    </button>
+  </div>
 </div>
 
-<!--<div class="container">-->
-  <!--<mat-form-field class="search-field">-->
-    <!--<input matInput type="text" placeholder="Szukaj po imieniu" [(ngModel)]="search" (keydown)="loadLessonsPage()">-->
-    <!--<button class="close" mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search='' && loadLessonsPage()">-->
-      <!--<mat-icon>close</mat-icon>-->
-    <!--</button>-->
-  <!--</mat-form-field>-->
-<!--</div>-->
 
-<!--recipient: Recipient ;-->
-<!--branch: Branch ;-->
-<!--project: Project ;-->
-<!--sendDate: number;-->
-<!--deliveryDate: number ;-->
-<!--shipmentStatus: ShipmentStatus ;-->
-<!--carrier: Carrier;-->
+<div class="tbn">
+
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-container matColumnDef="branch">
+      <mat-header-cell *matHeaderCellDef>Branch</mat-header-cell>
+      <mat-cell class="description-cell"
+                *matCellDef="let shipment">{{shipment.branch.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <mat-header-cell *matHeaderCellDef>User</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.user.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="project">
+      <mat-header-cell *matHeaderCellDef>Project</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.project.name}} {{shipment.project.number}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="recipient">
+      <mat-header-cell *matHeaderCellDef>Recipient</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.recipient.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="shipmentStatus">
+      <mat-header-cell *matHeaderCellDef>Shipment status</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.shipmentStatus.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sendDate">
+      <mat-header-cell *matHeaderCellDef>Send date</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.sendDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="carrier">
+      <mat-header-cell *matHeaderCellDef>Carrier</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">
+        <div *ngIf="shipment.carrier != null">
+          {{shipment.carrier.name}}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="deliveryDate">
+      <mat-header-cell *matHeaderCellDef>Delivery Date</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.deliveryDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pod">
+      <mat-header-cell *matHeaderCellDef>Pod</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.pod}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="transactionType">
+      <mat-header-cell *matHeaderCellDef>Transaction Type</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.transactionType.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="mrn">
+      <mat-header-cell *matHeaderCellDef>MRN</mat-header-cell>
+      <mat-cell class="duration-cell"
+                *matCellDef="let shipment">{{shipment.mrn}}</mat-cell>
+    </ng-container>
 
 
-<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" fxFlexAlign="center">
-  <div fxFlex="90%">asdsadsadsa</div>
-  <!--<div>-->
-    <!--<div class="spinner-container" *ngIf="dataSource.loading$ | async">-->
-      <!--<mat-spinner></mat-spinner>-->
-    <!--</div>-->
-    <!--<mat-table class="mat-elevation-z8" [dataSource]="dataSource">-->
 
-      <!--<ng-container matColumnDef="id">-->
-        <!--<mat-header-cell *matHeaderCellDef>id</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let shipment">{{shipment.id}}</mat-cell>-->
-      <!--</ng-container>-->
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+      <mat-cell *matCellDef="let shipment" >
+        <button class="button" mat-raised-button color="warn" (click)="deactivateShipment(shipment)" ><mat-icon >delete</mat-icon></button>
+        <button class="button" mat-raised-button color="primary" (click)="openDialog(shipment)"><mat-icon >edit</mat-icon></button>
+      </mat-cell>
+    </ng-container>
 
-      <!--<ng-container matColumnDef="name">-->
-        <!--<mat-header-cell *matHeaderCellDef>Branch</mat-header-cell>-->
-        <!--<mat-cell class="description-cell"-->
-                  <!--*matCellDef="let shipment">{{shipment.branch.id}}</mat-cell>-->
-      <!--</ng-container>-->
+    <div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER'; else viewer ">
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-      <!--<ng-container matColumnDef="surname">-->
-        <!--<mat-header-cell *matHeaderCellDef>Nazwisko</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.surname}}</mat-cell>-->
-      <!--</ng-container>-->
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </div>
+    <ng-template #viewer>
+      <mat-header-row *matHeaderRowDef="displayedColumnsForViewer"></mat-header-row>
 
-      <!--<ng-container matColumnDef="age">-->
-        <!--<mat-header-cell *matHeaderCellDef>Wiek</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.age}}</mat-cell>-->
-      <!--</ng-container>-->
+      <mat-row *matRowDef="let row; columns: displayedColumnsForViewer"></mat-row>
+    </ng-template>
 
-      <!--<ng-container matColumnDef="clas">-->
-        <!--<mat-header-cell *matHeaderCellDef>Klasa</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.clas}}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--<ng-container matColumnDef="timesWeekly">-->
-        <!--<mat-header-cell *matHeaderCellDef>Ile razy w tyg.</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.timesWeekly}}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--<ng-container matColumnDef="dayOfWeek">-->
-        <!--<mat-header-cell *matHeaderCellDef>Termin zajęć</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.dayOfWeek}}</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--<ng-container matColumnDef="time">-->
-        <!--<mat-header-cell *matHeaderCellDef>Godzina</mat-header-cell>-->
-        <!--<mat-cell class="duration-cell"-->
-                  <!--*matCellDef="let student">{{student.time}}</mat-cell>-->
-      <!--</ng-container>-->
-      <!--<ng-container matColumnDef="edit">-->
-        <!--<mat-header-cell *matHeaderCellDef>Edycja</mat-header-cell>-->
-        <!--<mat-cell *matCellDef="let student" >-->
-          <!--<button (click)="deleteStudent(student)" class="btn btn-danger button"><i class="fa fa-trash"></i></button>-->
-          <!--<button (click)="openDialog(student)"class="btn btn-primary button"><i class="fa fa-pencil"></i></button>-->
-        <!--</mat-cell>-->
-      <!--</ng-container>-->
-
-      <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-
-      <!--<mat-row *matRowDef="let row; columns: displayedColumns">-->
-      <!--</mat-row>-->
-
-    <!--</mat-table>-->
-    <!--<mat-paginator [length]="total_count" [pageSize]="5"-->
-                   <!--[pageSizeOptions]="[3, 5, 10]"></mat-paginator>-->
-  <!--</div>-->
+  </mat-table>
+  <mat-paginator [length]="total_count" [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
 </div>

@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +25,8 @@ export class UserApiService {
     return this.http.get<User>(this.URL1+'/name', {params: new HttpParams().append('email',email)});
   }
 
+  getUserById(id: number): Observable<User>{
+    return this.http.get<User>(this.URL1 +"/"+id);
+  }
 
 }

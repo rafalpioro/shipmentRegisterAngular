@@ -13,6 +13,7 @@ import {AddRecipientComponent} from "./recipient/add-recipient/add-recipient.com
 import {AddCarrierComponent} from "./carrier/add-carrier/add-carrier.component";
 import {AddClientComponent} from "./client/add-client/add-client.component";
 import {AddProjectComponent} from "./project/add-project/add-project.component";
+import {AddShipmentComponent} from "./shipment/add-shipment/add-shipment.component";
 
 
 const routes: Routes = [
@@ -79,6 +80,12 @@ const routes: Routes = [
     component: ShipmentComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_VIEWER', 'ROLE_USER', 'ROLE_ADMIN']}
+  },
+  {
+    path: 'shipments/add',
+    component: AddShipmentComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_USER', 'ROLE_ADMIN']}
   },
   {
     path: '',

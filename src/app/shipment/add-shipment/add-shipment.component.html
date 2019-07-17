@@ -1,0 +1,97 @@
+<div class="container">
+  <h2 >Add a new shipment</h2>
+  <form  [formGroup]="form" (ngSubmit)="save()">
+    <div fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px">
+
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="branch"  placeholder="Branch">
+          <mat-option  *ngFor = "let branch of branches"  [value]="branch">{{branch.name}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('branch').hasError('required')">Branch is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="project"  placeholder="Project">
+          <mat-option  *ngFor = "let project of projects"  [value]="project">{{project.name}} {{project.number}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('project').hasError('required')">Project is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="recipient"  placeholder="Recipient">
+          <mat-option  *ngFor = "let recipient of recipients"  [value]="recipient">{{recipient.name}} {{recipient.address}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('recipient').hasError('required')">Recipient is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="shipmentStatus"  placeholder="Shipment status" [(ngModel)]="shipmentStat">
+          <mat-option  *ngFor = "let shipmentStatus of shipmentStatuses"  [value]="shipmentStatus">{{shipmentStatus.name}} </mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('shipmentStatus').hasError('required')">Shipment status is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto">
+        <input [matDatepicker]="picker" class="form-control" matInput formControlName="sendDate" placeholder="Send date" [(ngModel)]="sent">
+        <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div *ngIf="sent != null">
+        <mat-form-field fxFlex="auto" >
+          <mat-select   formControlName="carrier"  placeholder="Carrier ">
+            <mat-option  *ngFor = "let carrier of carriers"  [value]="carrier">{{carrier.name}} </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="shipmentStat != null && shipmentStat.name == 'delivered'">
+        <mat-form-field fxFlex="auto">
+              <input [matDatepicker]="picker1" class="form-control" matInput formControlName="deliveryDate" placeholder="Delivery date"  >
+              <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-checkbox  formControlName="pod" >POD</mat-checkbox>
+
+
+      </div>
+
+      <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="transactionType"  placeholder="Transaction type" [(ngModel)]="export_">
+          <mat-option  *ngFor = "let transactionType of transactionTypes"  [value]="transactionType">{{transactionType.name}} </mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('transactionType').hasError('required')">Transaction type is required</span>
+        </mat-error>
+      </mat-form-field>
+
+
+      <div *ngIf="export_ != null  && export_.name == 'export'">
+        <mat-form-field fxFlex="auto"  >
+          <input  class="form-control"  matInput formControlName="mrn" placeholder="MRN">
+          <mat-error >
+            <span *ngIf="form.get('mrn').hasError('minlength') ">MRN require 19 chars</span>
+            <span *ngIf="form.get('mrn').hasError('maxlength') ">MRN require 19 chars</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+
+    </div>
+    <button class="mat-raised-button"  (click)="close()">Back</button>
+    <button class="mat-raised-button mat-primary" type="submit" [disabled]="!form.valid" >Save</button>
+  </form>
+</div>

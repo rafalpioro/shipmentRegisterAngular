@@ -3,6 +3,8 @@ import {Branch} from "./branch";
 import {Project} from "./project";
 import {Carrier} from "./carrier";
 import {ShipmentStatus} from "./shipment-status";
+import {User} from "./user";
+import {TransactionType} from "./transaction-type";
 
 export interface Shipment {
 
@@ -15,5 +17,9 @@ export interface Shipment {
   shipmentStatus: ShipmentStatus ;
   carrier: Carrier;
   isActive: boolean;
+  pod: boolean;
+  mrn: string;
+  user: User;
+  transactionType: TransactionType;
 
 }

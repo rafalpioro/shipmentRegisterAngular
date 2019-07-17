@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CarrierType} from "../../model/carrier-type";
 import {ProjectStatus} from "../../model/project-status";
 
 @Injectable({
@@ -14,14 +13,14 @@ export class ProjectStatusApiService {
   constructor(private http:HttpClient) { }
 
   allProjectStatus(): Observable<ProjectStatus[]> {
-    return this.http.get<CarrierType[]>(this.URL);
+    return this.http.get<ProjectStatus[]>(this.URL);
   }
 
   addNewProjectStatus(projectStatus: ProjectStatus):Observable<any>{
     return this.http.post<ProjectStatus>(this.URL, projectStatus);
   }
 
-  deleteProjectStatus(id: number):Observable<any>{
+  deactivateProjectStatus(id: number):Observable<any>{
     return this.http.patch(this.URL+"/"+id, null);
   }
 

@@ -31,6 +31,6 @@ export class ShipmentsDatasource implements DataSource<Shipment>{
       catchError(() => of([])),
       finalize(() => this.loadingSubject.next(false))
     )
-      .subscribe(student => {this.shipmentSubject.next(student["content"])});
+      .subscribe(shipment => {this.shipmentSubject.next(shipment["content"])});
   }
 }

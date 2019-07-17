@@ -1,18 +1,22 @@
-.add-button{
-  padding: 10px;
+.add-button {
+  margin-top: 30px;
   display: block;
 }
 
-.tbn{
-  margin-top: 5em;
+.tbn {
+  margin-top: 3em;
+  margin-left: 3em;
+  margin-right: 3em;
   display: block;
 }
 
-.button{
-  margin: 3px;
+::ng-deep .button {
+  margin: 5px;
 }
 
-.close{
+
+
+.close {
   border-style: none;
   background-color: lightgreen;
 }
