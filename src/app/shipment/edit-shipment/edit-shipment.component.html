@@ -1,3 +1,97 @@
-<p>
-  edit-shipment works!
-</p>
+<h2 mat-dialog-title>Edit shipment <span class="green">{{shipment.id}} </span></h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+
+
+  <mat-form-field fxFlex="auto" >
+    <mat-select   formControlName="branch"  placeholder="{{shipment.branch.name}}" [(ngModel)]="shipment.branch">
+      <mat-option  *ngFor = "let branch of branches"  [value]="branch">{{branch.name}}</mat-option>
+    </mat-select>
+    <mat-error >
+      <span *ngIf="form.get('branch').hasError('required')">Branch is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto" >
+    <mat-select   formControlName="project"  placeholder="{{shipment.project.name}}" [(ngModel)]="shipment.project">
+      <mat-option  *ngFor = "let project of projects"  [value]="project">{{project.name}} {{project.number}}</mat-option>
+    </mat-select>
+    <mat-error >
+      <span *ngIf="form.get('project').hasError('required')">Project is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto" >
+    <mat-select   formControlName="recipient"  placeholder="{{shipment.recipient.name}}" [(ngModel)]="shipment.recipient">
+      <mat-option  *ngFor = "let recipient of recipients"  [value]="recipient">{{recipient.name}} {{recipient.address}}</mat-option>
+    </mat-select>
+    <mat-error >
+      <span *ngIf="form.get('recipient').hasError('required')">Recipient is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto" >
+    <mat-select   formControlName="shipmentStatus"  placeholder="{{shipment.shipmentStatus.name}}" [(ngModel)]="shipment.shipmentStatus">
+      <mat-option  *ngFor = "let shipmentStatus of shipmentStatuses"  [value]="shipmentStatus">{{shipmentStatus.name}} </mat-option>
+    </mat-select>
+    <mat-error >
+      <span *ngIf="form.get('shipmentStatus').hasError('required')">Shipment status is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto">
+    <input [matDatepicker]="picker" class="form-control" matInput formControlName="sendDate" placeholder="sent date" [(ngModel)]="shipment.sendDate">
+    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div *ngIf="shipment.sendDate != null">
+    <mat-form-field fxFlex="auto" >
+      <mat-select   formControlName="carrier"  placeholder="carrier {{shipment.carrier.name}}" [(ngModel)]="shipment.carrier">
+        <mat-option  *ngFor = "let carrier of carriers"  [value]="carrier">{{carrier.name}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="shipment.shipmentStatus != null && shipment.shipmentStatus.name == 'delivered'">
+    <mat-form-field fxFlex="auto">
+      <input [matDatepicker]="picker1" class="form-control" matInput formControlName="deliveryDate" placeholder="delivery date" [(ngModel)]="shipment.deliveryDate" >
+      <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-checkbox  formControlName="pod" checked="{{shipment.pod}}" [(ngModel)]="shipment.pod">POD</mat-checkbox>
+
+
+  </div>
+
+  <mat-form-field fxFlex="auto" >
+    <mat-select   formControlName="transactionType"   placeholder="{{shipment.transactionType.name}}" [(ngModel)]="shipment.transactionType">
+      <mat-option  *ngFor = "let transactionType of transactionTypes"  [value]="transactionType">{{transactionType.name}} </mat-option>
+    </mat-select>
+    <mat-error >
+      <span *ngIf="form.get('transactionType').hasError('required')">Transaction type is required</span>
+    </mat-error>
+  </mat-form-field>
+
+
+  <div *ngIf="shipment.transactionType != null  && shipment.transactionType.name == 'export'">
+    <mat-form-field fxFlex="auto"  >
+      <input  class="form-control"  matInput formControlName="mrn" placeholder="MRN {{shipment.mrn}}" [(ngModel)]="shipment.mrn">
+      <mat-error >
+        <span *ngIf="form.get('mrn').hasError('minlength') ">MRN require 19 chars</span>
+        <span *ngIf="form.get('mrn').hasError('maxlength') ">MRN require 19 chars</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
+

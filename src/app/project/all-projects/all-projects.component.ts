@@ -87,9 +87,8 @@ export class AllProjectsComponent implements AfterViewInit, OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = this.data;
+    dialogConfig.width = '500px';
 
-    this.dialog.open(EditProjectComponent, dialogConfig);
-    //
     const dialogRef = this.dialog.open(EditProjectComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => this.projectService.updateProject(project)

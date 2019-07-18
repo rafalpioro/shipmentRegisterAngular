@@ -22,6 +22,14 @@ export class ShipmentApiService {
     })
   }
 
+  allUserShipmentsWithPagination(id: number, page: string, size: string): Observable<Shipment[]>{
+    return this.http.get<Shipment[]>(this.URL+"/user/"+id, {
+      params: new HttpParams()
+        .append('page', page)
+        .append('size', size)
+    })
+  }
+
   allShipments(): Observable<Shipment[]> {
     return this.http.get<Shipment[]>(this.URL);
   }

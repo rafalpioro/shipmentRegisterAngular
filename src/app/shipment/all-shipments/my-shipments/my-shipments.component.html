@@ -1,16 +1,6 @@
-<div *ngIf="authenticationService.getRoleFromToken() != 'ROLE_VIEWER' ">
-  <div class=" add-button">
-    <button mat-raised-button (click)="addShipment()" color="primary">
-      <mat-icon>add</mat-icon>
-      <span>Add new shipment </span>
-    </button>
-  </div>
-</div>
-
 
 <div class="tbn">
-  <mat-tab-group>
-    <mat-tab label="All shipments">
+
       <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
 
         <div class="spinner-container" *ngIf="dataSource.loading$ | async">
@@ -110,9 +100,5 @@
       </mat-table>
       <mat-paginator [length]="total_count" [pageSize]="5"
                      [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
-    </mat-tab>
-    <mat-tab label="My shipments">
-        <app-my-shipments></app-my-shipments>
-    </mat-tab>
-  </mat-tab-group>
+
 </div>

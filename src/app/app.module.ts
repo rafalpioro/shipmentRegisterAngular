@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,6 +65,7 @@ import { TransactionTypeComponent } from './admin/transaction-type/transaction-t
 import {TransactionTypeApiService} from "./admin/transaction-type/transaction-type-api.service";
 import { BranchComponent } from './admin/branch/branch.component';
 import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status.component';
+import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
 
 
 @NgModule({
@@ -102,7 +104,8 @@ import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status
     EditShipmentComponent,
     TransactionTypeComponent,
     BranchComponent,
-    ShipmentStatusComponent
+    ShipmentStatusComponent,
+    MyShipmentsComponent
 
   ],
   imports: [
@@ -131,7 +134,8 @@ import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ],
   providers: [
     CountryApiService,

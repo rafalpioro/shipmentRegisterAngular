@@ -79,7 +79,7 @@ export class AddShipmentComponent implements OnInit {
     this.form = this.fb.group({
       id: [null],
       branch: ['',  Validators.required ],
-      user: [this.user],
+      user: [null],
       project: ['',Validators.required],
       recipient: ['', Validators.required],
       shipmentStatus: ['', Validators.required],

@@ -90,9 +90,8 @@ export class AllCarriersComponent implements OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.data = this.data;
+      dialogConfig.width = '500px';
 
-      this.dialog.open(EditCarrierComponent, dialogConfig);
-      //
       const dialogRef = this.dialog.open(EditCarrierComponent, dialogConfig);
 
       dialogRef.afterClosed().subscribe(data => this.carrierService.updateCarrier(carrier)

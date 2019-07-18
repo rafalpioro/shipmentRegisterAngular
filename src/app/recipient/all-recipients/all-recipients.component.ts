@@ -84,9 +84,8 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.data = this.data;
+      dialogConfig.width = '500px';
 
-      this.dialog.open(EditRecipientComponent, dialogConfig);
-      //
       const dialogRef = this.dialog.open(EditRecipientComponent, dialogConfig);
 
       dialogRef.afterClosed().subscribe(data => this.recipientService.updateRecipient(recipient)

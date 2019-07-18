@@ -1,24 +1,25 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {ShipmentsDatasource} from "./shipments-datasource";
-import {Shipment} from "../../model/shipment";
-import {ShipmentApiService} from "../shipment-api.service";
+import {ShipmentsDatasource} from "../shipments-datasource";
+import {Shipment} from "../../../model/shipment";
+import {MatDialog, MatDialogConfig, MatPaginator, MatSort} from "@angular/material";
+import {AuthenticationService} from "../../../service/security/authentication.service";
+import {ShipmentApiService} from "../../shipment-api.service";
 import {Router} from "@angular/router";
 import {tap} from "rxjs/operators";
-import {MatDialog, MatDialogConfig, MatPaginator, MatSort} from "@angular/material";
-import {AuthenticationService} from "../../service/security/authentication.service";
-import {EditShipmentComponent} from "../edit-shipment/edit-shipment.component";
+import {EditShipmentComponent} from "../../edit-shipment/edit-shipment.component";
+import {MyShipmentDatasource} from "./my-shipment-datasource";
 
 @Component({
-  selector: 'app-all-shipments',
-  templateUrl: './all-shipments.component.html',
-  styleUrls: ['./all-shipments.component.css']
+  selector: 'app-my-shipments',
+  templateUrl: './my-shipments.component.html',
+  styleUrls: ['./my-shipments.component.css']
 })
-export class AllShipmentsComponent implements AfterViewInit, OnInit {
+export class MyShipmentsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
   displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
 
-  dataSource :  ShipmentsDatasource;
+  dataSource :  MyShipmentDatasource;
   public total_count: number;
   data: Shipment;
 
@@ -28,14 +29,14 @@ export class AllShipmentsComponent implements AfterViewInit, OnInit {
   private page: string = '0';
   private size: string = '5';
 
-  constructor(private authenticationService: AuthenticationService, private shipmentService: ShipmentApiService, private router: Router, public dialog: MatDialog) { }
+  constructor(public authenticationService: AuthenticationService, private shipmentService: ShipmentApiService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.show();
   }
 
   show() {
-    this.dataSource = new ShipmentsDatasource(this.shipmentService);
+    this.dataSource = new MyShipmentDatasource(this.shipmentService, this.authenticationService);
     this.dataSource.loadShipments(this.page,this.size);
     this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
   }

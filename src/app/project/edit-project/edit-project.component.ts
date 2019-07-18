@@ -7,8 +7,7 @@ import {Client} from "../../model/client";
 import {Project} from "../../model/project";
 import {ProjectStatusApiService} from "../../admin/project-status/project-status-api.service";
 import {ClientApiService} from "../../client/client-api.service";
-import {uniqueProjectValidator} from "../unique-project-validator.directive";
-import {ProjectApiService} from "../project-api.service";
+
 
 @Component({
   selector: 'app-edit-project',
