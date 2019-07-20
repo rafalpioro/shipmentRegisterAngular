@@ -42,11 +42,18 @@
         </a>
       </li>
 
+
       <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.getRoleFromToken()=='ROLE_ADMIN'">
-        <a id="admin" mat-button routerLink="/admin" routerLinkActive="active-link">Admin
+        <a data-toggle="dropdown" class="dropdown-toggle" id="admin" mat-button routerLinkActive="active-link">Admin
           <mat-icon>verified_user</mat-icon>
+          <ul class="dropdown-menu bg-green">
+            <li><a mat-button routerLink="/admin" routerLinkActive="active-link">Admin1</a></li>
+            <li><a mat-button routerLink="/admin" routerLinkActive="active-link">Admin2</a></li>
+            <li><a mat-button routerLink="/admin" routerLinkActive="active-link">Admin3</a></li>
+          </ul>
         </a>
       </li>
+
 
       <li class="nav-item" *ngIf="!authService.isLoggedIn()">
         <a mat-button routerLink="/login" routerLinkActive="active-link">Login

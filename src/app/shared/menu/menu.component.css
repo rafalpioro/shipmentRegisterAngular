@@ -3,6 +3,12 @@ a{
   padding: 10px;
 }
 
+#adminMenu{
+  color: black;
+  padding: 10px;
+}
+
+
 .bg-green{
   background-color: darkslategray;
 }
