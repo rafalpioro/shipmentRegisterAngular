@@ -62,7 +62,7 @@ export class DeactivatedShipmentComponent implements AfterViewInit, OnInit {
     if(confirm("Are you sure you want to permanently delete the shipment??")){
       this.shipmentService.deleteShipment(shipment.id).subscribe(
         res =>{
-          this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
+          this.adminShipmentService.allDeactivetedShipemnts().subscribe(res=>{this.total_count = res.length});
           this.loadShipmentPage();
         },
         err=>{alert("Could not delete project")}
@@ -70,28 +70,14 @@ export class DeactivatedShipmentComponent implements AfterViewInit, OnInit {
     }
   }
 
-  openDialog(shipment: Shipment){
+  activeShipment(shipment: Shipment){
+    shipment.isActive = true;
+    this.shipmentService.toggleShipmentActive(shipment.id).subscribe(res => {
+      this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
+      this.loadShipmentPage();
+    },
+      err=>{alert("Could not active shipment")}
+      )
 
-    // const dialogConfig = new MatDialogConfig();
-    //
-    //
-    // this.data = shipment;
-    //
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.data = this.data;
-    // dialogConfig.width = '500px';
-    //
-    // const dialogRef = this.dialog.open(EditShipmentComponent, dialogConfig);
-    //
-    // dialogRef.afterClosed().subscribe(data => this.shipmentService.updateShipment(shipment)
-    //   .subscribe(res=>{
-    //     this.data = res;
-    //
-    //     this.show();
-    //   },error1 => {
-    //     alert("Alert form openDialog")
-    //   })
-    // );
   }
 }

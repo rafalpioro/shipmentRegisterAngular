@@ -38,7 +38,7 @@ export class ShipmentApiService {
     return this.http.get<Shipment>(this.URL +"/"+id);
   }
 
-  deactivateShipment(id: number):Observable<any>{
+  toggleShipmentActive(id: number):Observable<any>{
     return this.http.patch(this.URL+"/"+id, null);
   }
 
@@ -47,7 +47,7 @@ export class ShipmentApiService {
   }
 
   deleteShipment(id: number): Observable<any> {
-    return this.http.delete(this.URL + "/" + id, null);
+    return this.http.delete(this.URL + "/" + id);
   }
 
   updateShipment(shipment: Shipment): Observable<any> {

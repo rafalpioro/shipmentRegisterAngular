@@ -80,8 +80,8 @@
         <ng-container matColumnDef="edit">
           <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
           <mat-cell *matCellDef="let shipment" >
-            <button class="button" mat-raised-button color="warn" (click)="deleteShipment(shipment)" ><mat-icon >delete</mat-icon></button>
-            <button class="button" mat-raised-button color="primary" (click)="openDialog(shipment)"><mat-icon >edit</mat-icon></button>
+            <button class="button" mat-raised-button color="warn" (click)="deleteShipment(shipment)" ><mat-icon >delete_forever</mat-icon></button>
+            <button class="button" mat-raised-button color="primary" (click)="activeShipment(shipment)"><mat-icon >build</mat-icon></button>
           </mat-cell>
         </ng-container>
 

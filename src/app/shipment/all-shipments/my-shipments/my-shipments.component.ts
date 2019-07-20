@@ -64,7 +64,7 @@ export class MyShipmentsComponent implements AfterViewInit, OnInit {
 
   deactivateShipment(shipment: Shipment){
     if(confirm("Are you sure you want to delete the shipment??")){
-      this.shipmentService.deactivateShipment(shipment.id).subscribe(
+      this.shipmentService.toggleShipmentActive(shipment.id).subscribe(
         res =>{
           this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
           this.loadShipmentPage();
