@@ -1,0 +1,99 @@
+<div class="tbn">
+  <h2>Deactivated shipments</h2>
+      <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+
+        <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+          <mat-spinner></mat-spinner>
+        </div>
+
+        <ng-container matColumnDef="branch">
+          <mat-header-cell *matHeaderCellDef>Branch</mat-header-cell>
+          <mat-cell class="description-cell"
+                    *matCellDef="let shipment">{{shipment.branch.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="user">
+          <mat-header-cell *matHeaderCellDef>User</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.user.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="project">
+          <mat-header-cell *matHeaderCellDef>Project</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.project.name}} {{shipment.project.number}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="recipient">
+          <mat-header-cell *matHeaderCellDef>Recipient</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.recipient.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="shipmentStatus">
+          <mat-header-cell *matHeaderCellDef>Shipment status</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.shipmentStatus.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="sendDate">
+          <mat-header-cell *matHeaderCellDef>Send date</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.sendDate}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="carrier">
+          <mat-header-cell *matHeaderCellDef>Carrier</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">
+            <div *ngIf="shipment.carrier != null">
+              {{shipment.carrier.name}}
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="deliveryDate">
+          <mat-header-cell *matHeaderCellDef>Delivery Date</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.deliveryDate}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pod">
+          <mat-header-cell *matHeaderCellDef>Pod</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.pod}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="transactionType">
+          <mat-header-cell *matHeaderCellDef>Transaction Type</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.transactionType.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="mrn">
+          <mat-header-cell *matHeaderCellDef>MRN</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.mrn}}</mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+          <mat-cell *matCellDef="let shipment" >
+            <button class="button" mat-raised-button color="warn" (click)="deleteShipment(shipment)" ><mat-icon >delete</mat-icon></button>
+            <button class="button" mat-raised-button color="primary" (click)="openDialog(shipment)"><mat-icon >edit</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+      </mat-table>
+      <mat-paginator [length]="total_count" [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 20]">
+
+      </mat-paginator>
+
+</div>

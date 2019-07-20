@@ -14,12 +14,19 @@ import {AddCarrierComponent} from "./carrier/add-carrier/add-carrier.component";
 import {AddClientComponent} from "./client/add-client/add-client.component";
 import {AddProjectComponent} from "./project/add-project/add-project.component";
 import {AddShipmentComponent} from "./shipment/add-shipment/add-shipment.component";
+import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
 
 
 const routes: Routes = [
   {
     path: 'admin',
     component: UserComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'admin/deactivated-shipments',
+    component: DeactivatedShipmentComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },

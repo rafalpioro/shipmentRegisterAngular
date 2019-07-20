@@ -67,6 +67,8 @@ import {TransactionTypeApiService} from "./admin/transaction-type/transaction-ty
 import { BranchComponent } from './admin/branch/branch.component';
 import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status.component';
 import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
+import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
+import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
 
 
 @NgModule({
@@ -106,7 +108,9 @@ import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-s
     TransactionTypeComponent,
     BranchComponent,
     ShipmentStatusComponent,
-    MyShipmentsComponent
+    MyShipmentsComponent,
+    DeactivatedShipmentComponent
+
 
   ],
   imports: [
@@ -150,6 +154,7 @@ import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-s
     CarrierTypeApiService,
     CarrierApiService,
     TransactionTypeApiService,
+    AdminShipmentApiService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],

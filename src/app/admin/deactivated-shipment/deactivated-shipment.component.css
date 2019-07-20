@@ -1,0 +1,27 @@
+.add-button {
+  margin-top: 30px;
+  margin-left: 50px;
+  display: block;
+}
+
+.tbn {
+  margin-top: 3em;
+  margin-left: 3em;
+  margin-right: 3em;
+  display: block;
+}
+
+::ng-deep .button {
+  margin: 5px;
+}
+
+
+
+.close {
+  border-style: none;
+  background-color: lightgreen;
+}
+
+mat-table{
+  margin: 3em;
+}

@@ -47,7 +47,7 @@ export class ShipmentApiService {
   }
 
   deleteShipment(id: number): Observable<any> {
-    return this.http.patch(this.URL + "/" + id, null);
+    return this.http.delete(this.URL + "/" + id, null);
   }
 
   updateShipment(shipment: Shipment): Observable<any> {
