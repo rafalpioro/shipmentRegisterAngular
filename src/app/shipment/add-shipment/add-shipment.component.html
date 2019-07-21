@@ -32,6 +32,15 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto" >
+        <mat-select   formControlName="incoterms"  placeholder="Incoterms">
+          <mat-option  *ngFor = "let incoterms of incotermss"  [value]="incoterms">{{incoterms.name}}</mat-option>
+        </mat-select>
+        <mat-error >
+          <span *ngIf="form.get('incoterms').hasError('required')">Icoterms is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="auto" >
         <mat-select   formControlName="shipmentStatus"  placeholder="Shipment status" [(ngModel)]="shipmentStat">
           <mat-option  *ngFor = "let shipmentStatus of shipmentStatuses"  [value]="shipmentStatus">{{shipmentStatus.name}} </mat-option>
         </mat-select>

@@ -15,8 +15,8 @@ import {EditShipmentComponent} from "../edit-shipment/edit-shipment.component";
 })
 export class AllShipmentsComponent implements AfterViewInit, OnInit {
 
-  displayedColumns = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
-  displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
+  displayedColumns = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
+  displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
 
   dataSource :  ShipmentsDatasource;
   public total_count: number;

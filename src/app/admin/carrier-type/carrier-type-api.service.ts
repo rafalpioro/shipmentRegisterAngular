@@ -20,8 +20,8 @@ export class CarrierTypeApiService {
     return this.http.post<CarrierType>(this.URL, carrierType);
   }
 
-  deactivateCarrierType(id: number):Observable<any>{
-    return this.http.patch(this.URL+"/"+id, null);
+  deleteCarrierType(id: number):Observable<any>{
+    return this.http.delete(this.URL+"/"+id);
   }
 
   updateCarrierType(carrierType: CarrierType): Observable<any>{

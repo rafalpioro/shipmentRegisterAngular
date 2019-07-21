@@ -16,8 +16,8 @@ import {MyShipmentDatasource} from "./my-shipment-datasource";
 })
 export class MyShipmentsComponent implements AfterViewInit, OnInit {
 
-  displayedColumns = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
-  displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
+  displayedColumns = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
+  displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
 
   dataSource :  MyShipmentDatasource;
   public total_count: number;

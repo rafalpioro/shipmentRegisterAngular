@@ -30,6 +30,12 @@
                     *matCellDef="let shipment">{{shipment.recipient.name}}</mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="incoterms">
+          <mat-header-cell *matHeaderCellDef>Incoterms</mat-header-cell>
+          <mat-cell class="duration-cell"
+                    *matCellDef="let shipment">{{shipment.incoterms.name}}</mat-cell>
+        </ng-container>
+
         <ng-container matColumnDef="shipmentStatus">
           <mat-header-cell *matHeaderCellDef>Shipment status</mat-header-cell>
           <mat-cell class="duration-cell"

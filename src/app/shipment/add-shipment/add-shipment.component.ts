@@ -23,6 +23,8 @@ import {ShipmentStatusApiService} from "../../admin/shipment-status/shipment-sta
 import {CarrierApiService} from "../../carrier/carrier-api.service";
 import {AuthenticationService} from "../../service/security/authentication.service";
 import {Shipment} from "../../model/shipment";
+import {Incoterms} from "../../model/incoterms";
+import {IncotermsApiService} from "../../admin/incoterms/incoterms-api.service";
 
 @Component({
   selector: 'app-add-shipment',
@@ -35,6 +37,7 @@ export class AddShipmentComponent implements OnInit {
   clients: Client[];
   projects: Project[];
   recipients: Recipient[];
+  incotermss: Incoterms[]
   shipmentStatuses: ShipmentStatus[];
   carriers: Carrier[];
   transactionTypes: TransactionType[];
@@ -52,6 +55,7 @@ export class AddShipmentComponent implements OnInit {
               private clientService: ClientApiService,
               private projectService: ProjectApiService,
               private recipientsService: RecipientApiService,
+              private incotermsService: IncotermsApiService,
               private shipmentStatusService: ShipmentStatusApiService,
               private carrierService: CarrierApiService,
               private transactionService: TransactionTypeApiService,
@@ -62,6 +66,7 @@ export class AddShipmentComponent implements OnInit {
     clientService.allClients().subscribe(value => this.clients = value);
     projectService.allProjects().subscribe(value => this.projects = value);
     recipientsService.allRecipients().subscribe(value => this.recipients = value);
+    incotermsService.allIncoterms().subscribe(value => this.incotermss = value);
     shipmentStatusService.allShipmentStatus().subscribe(value => this.shipmentStatuses = value);
     carrierService.allCarriers().subscribe(value => this.carriers = value);
     transactionService.allTransactionTypes().subscribe(value => this.transactionTypes = value);
@@ -82,6 +87,7 @@ export class AddShipmentComponent implements OnInit {
       user: [null],
       project: ['',Validators.required],
       recipient: ['', Validators.required],
+      incoterms: [null, Validators.required],
       shipmentStatus: ['', Validators.required],
       sendDate: [''],
       carrier: [null],

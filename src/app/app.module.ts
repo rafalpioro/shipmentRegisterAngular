@@ -69,6 +69,7 @@ import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status
 import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
 import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
 import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
+import { IncotermsComponent } from './admin/incoterms/incoterms.component';
 
 
 @NgModule({
@@ -109,7 +110,8 @@ import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactiv
     BranchComponent,
     ShipmentStatusComponent,
     MyShipmentsComponent,
-    DeactivatedShipmentComponent
+    DeactivatedShipmentComponent,
+    IncotermsComponent
 
 
   ],

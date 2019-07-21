@@ -16,7 +16,7 @@ import {ShipmentApiService} from "../../shipment/shipment-api.service";
 })
 export class DeactivatedShipmentComponent implements AfterViewInit, OnInit {
 
-  displayedColumns = ['branch', 'user', 'project', 'recipient', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
+  displayedColumns = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
 
   dataSource :  DeactivatedShipmentDatasource;
   public total_count: number;
