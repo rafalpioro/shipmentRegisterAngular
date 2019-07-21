@@ -59,9 +59,6 @@ export class BranchComponent implements AfterViewInit, OnInit {
         alert("Alert form openDialog")
       })
     );
-
-
-
   }
 
   openDialogAddBranch() {
@@ -84,5 +81,9 @@ export class BranchComponent implements AfterViewInit, OnInit {
       }, error1 => {
         alert("Alert form openDialog")
       })
+  }
+
+  deleteBranch(branch:Branch) {
+    this.branchesService.deleteBranch(branch.id).subscribe(value => this.loadBranch() )
   }
 }

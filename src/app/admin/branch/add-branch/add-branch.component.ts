@@ -19,8 +19,7 @@ export class AddBranchComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private dialogRef: MatDialogRef<AddBranchComponent>,
-              private countryService: CountryApiService,
-              @Inject(MAT_DIALOG_DATA) public branch: Branch) {
+              private countryService: CountryApiService) {
 
     countryService.allCountries().subscribe(value => this.countries = value);
     this.createForm();

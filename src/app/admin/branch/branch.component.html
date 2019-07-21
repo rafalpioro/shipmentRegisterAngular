@@ -12,28 +12,31 @@
     <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{branch.name}} </mat-card-title>
+        <mat-card-title><h4>{{branch.name}} </h4></mat-card-title>
+        <mat-card-subtitle>{{branch.country.name}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <div>
+          <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/b/b2/DARPA_headquarters.jpg" alt="Photo of a branch ">
+        </div>
+
         <h5>Address</h5>
-        <p>
+        <div>
           {{branch.address}}
-        </p>
+        </div>
         <h5>City</h5>
-        <p>
+        <div>
           {{branch.city}}
-        </p>
+        </div>
         <h5>Zip code</h5>
-        <p>
+        <div>
           {{branch.zipCode}}
-        </p>
-        <h5>Country</h5>
-        <p>
-          {{branch.country.name}}
-        </p>
+        </div>
+
       </mat-card-content>
       <mat-card-actions>
         <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditBranch(branch)">Edit</button>
+        <button class="mat-raised-button mat-warn"  mat-button (click)="deleteBranch(branch)">Delete</button>
       </mat-card-actions>
     </mat-card>
   </div>

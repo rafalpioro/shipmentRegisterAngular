@@ -20,8 +20,8 @@ export class BranchApiService {
     return this.http.post<Branch>(this.URL, branch);
   }
 
-  deactivateBranch(id: number):Observable<any>{
-    return this.http.patch(this.URL+"/"+id, null);
+  deleteBranch(id: number):Observable<any>{
+    return this.http.delete(this.URL+"/"+id);
   }
 
   updateBranch(branch: Branch): Observable<any>{

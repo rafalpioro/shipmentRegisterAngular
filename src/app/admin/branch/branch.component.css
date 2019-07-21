@@ -16,3 +16,7 @@
   margin-bottom: 30px;
 }
 
+.example-header-image {
+  background-image: url('https://get.pxhere.com/photo/architecture-structure-building-facade-professional-headquarters-daylighting-atmosphere-of-earth-17951.jpg');
+  background-size: cover;
+}
