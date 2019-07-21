@@ -5,7 +5,8 @@
   <mat-form-field fxFlex="auto">
     <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name"  >
     <mat-error >
-      <span *ngIf="!form.get('name').valid ">Name is required</span>
+      <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+      <span *ngIf = "!form.get('name').hasError('required')">Name already exists</span>
     </mat-error>
   </mat-form-field>
 

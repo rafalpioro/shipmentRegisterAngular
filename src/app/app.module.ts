@@ -72,6 +72,7 @@ import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactiv
 import { IncotermsComponent } from './admin/incoterms/incoterms.component';
 import { EditBranchComponent } from './admin/branch/edit-branch/edit-branch.component';
 import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component";
+import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-validator.directive';
 
 
 
@@ -116,7 +117,8 @@ import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component
     DeactivatedShipmentComponent,
     IncotermsComponent,
     EditBranchComponent,
-    AddBranchComponent
+    AddBranchComponent,
+    UniqueBranchValidatorDirective
 
 
   ],

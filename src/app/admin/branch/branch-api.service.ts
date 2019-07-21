@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Branch} from "../../model/branch";
 
@@ -14,6 +14,11 @@ export class BranchApiService {
 
   allBranches(): Observable<Branch[]> {
     return this.http.get<Branch[]>(this.URL);
+  }
+
+  getBranchByName(name: string): Observable<Branch[]>{
+    return this.http.get<Branch[]>(this.URL+"/name", {params: new HttpParams()
+        .append('name', name)} );
   }
 
   addNewBranch(branch: Branch):Observable<any>{
