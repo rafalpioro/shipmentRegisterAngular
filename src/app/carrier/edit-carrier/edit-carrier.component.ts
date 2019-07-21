@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {RecipientApiService} from "../../recipient/recipient-api.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {CarrierType} from "../../model/carrier-type";
 import {CarrierTypeApiService} from "../../admin/carrier-type/carrier-type-api.service";
@@ -26,7 +25,6 @@ export class EditCarrierComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.carrierTypes)
   }
 
   createForm(){

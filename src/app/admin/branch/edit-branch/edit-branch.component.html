@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Edit branch <span class="green">{{branch.name}} </span></h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field fxFlex="auto">
+    <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="branch.name" value={{branch.name}}>
+    <mat-error >
+      <span *ngIf="!form.get('name').valid ">Name is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto">
+    <input  class="form-control" matInput formControlName="address"   placeholder="Address" [(ngModel)]="branch.address" value={{branch.address}} >
+    <mat-error>
+      <span *ngIf="!form.get('address').valid ">Address is required</span>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select formControlName="country"   placeholder="{{branch.country.name}}" [(ngModel)]="branch.country">
+      <mat-option *ngFor = "let country of countries"  [value]="country">{{country.name}}</mat-option>
+      <mat-error >
+        <span *ngIf="!form.get('country').valid ">Country is required</span>
+      </mat-error>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto">
+    <input  class="form-control" matInput formControlName="city" placeholder="City" [(ngModel)]="branch.city" value={{branch.city}}>
+    <mat-error >
+      <span *ngIf="!form.get('city').valid ">City is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code" [(ngModel)]="branch.zipCode" value={{branch.zipCode}}>
+    <mat-error >
+      <span *ngIf="!form.get('zipCode').valid ">Zip code is required</span>
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
+

@@ -1,3 +1,44 @@
-<p>
-  branch works!
-</p>
+
+<div class="container add-button">
+    <button mat-raised-button (click)="openDialogAddBranch()" color="primary">
+      <mat-icon>add</mat-icon>
+      <span>Add new branch </span>
+    </button>
+</div>
+
+
+<div *ngIf="check" class="container ">
+  <div id="card" *ngFor="let branch of branches">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{branch.name}} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h5>Address</h5>
+        <p>
+          {{branch.address}}
+        </p>
+        <h5>City</h5>
+        <p>
+          {{branch.city}}
+        </p>
+        <h5>Zip code</h5>
+        <p>
+          {{branch.zipCode}}
+        </p>
+        <h5>Country</h5>
+        <p>
+          {{branch.country.name}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditBranch(branch)">Edit</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="!check" class="container">
+  <h2 class="align-content-center">Branches do not exist!</h2>
+</div>

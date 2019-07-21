@@ -70,6 +70,9 @@ import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-s
 import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
 import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
 import { IncotermsComponent } from './admin/incoterms/incoterms.component';
+import { EditBranchComponent } from './admin/branch/edit-branch/edit-branch.component';
+import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component";
+
 
 
 @NgModule({
@@ -111,7 +114,9 @@ import { IncotermsComponent } from './admin/incoterms/incoterms.component';
     ShipmentStatusComponent,
     MyShipmentsComponent,
     DeactivatedShipmentComponent,
-    IncotermsComponent
+    IncotermsComponent,
+    EditBranchComponent,
+    AddBranchComponent
 
 
   ],
@@ -160,6 +165,6 @@ import { IncotermsComponent } from './admin/incoterms/incoterms.component';
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent, EditShipmentComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent, EditShipmentComponent, EditBranchComponent, AddBranchComponent]
 })
 export class AppModule { }
