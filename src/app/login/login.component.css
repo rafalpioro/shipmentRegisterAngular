@@ -6,3 +6,11 @@ mat-form-field {
   margin: 10em;
 
 }
+
+.login-body {
+  background-image: url("https://di-uploads-pod6.dealerinspire.com/dickdyertoyota/uploads/2017/01/camry-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #212529;
+  opacity: .7;
+}
