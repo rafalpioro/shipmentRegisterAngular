@@ -16,6 +16,7 @@ import {AddProjectComponent} from "./project/add-project/add-project.component";
 import {AddShipmentComponent} from "./shipment/add-shipment/add-shipment.component";
 import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
 import {BranchComponent} from "./admin/branch/branch.component";
+import {CarrierTypeComponent} from "./admin/carrier-type/carrier-type.component";
 
 
 const routes: Routes = [
@@ -34,6 +35,12 @@ const routes: Routes = [
   {
     path: 'admin/branches',
     component: BranchComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'admin/carrier-types',
+    component: CarrierTypeComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },

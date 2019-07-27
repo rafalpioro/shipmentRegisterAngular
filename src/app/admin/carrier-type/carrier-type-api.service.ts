@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient } from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CarrierType} from "../../model/carrier-type";
 
@@ -16,7 +16,12 @@ export class CarrierTypeApiService {
     return this.http.get<CarrierType[]>(this.URL);
   }
 
-  addNewCarrierTypes(carrierType: CarrierType):Observable<any>{
+  getCarrierTypeByName(name: string): Observable<CarrierType[]>{
+    return this.http.get<CarrierType[]>(this.URL+"/name", {params: new HttpParams()
+        .append('name', name)} );
+  }
+
+  addNewCarrierType(carrierType: CarrierType):Observable<any>{
     return this.http.post<CarrierType>(this.URL, carrierType);
   }
 
@@ -25,6 +30,6 @@ export class CarrierTypeApiService {
   }
 
   updateCarrierType(carrierType: CarrierType): Observable<any>{
-    return this.http.put(this.URL +"/"+carrierType.id,carrierType);
+    return this.http.put(this.URL +"/"+carrierType.id, carrierType);
   }
 }

@@ -73,6 +73,9 @@ import { IncotermsComponent } from './admin/incoterms/incoterms.component';
 import { EditBranchComponent } from './admin/branch/edit-branch/edit-branch.component';
 import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component";
 import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-validator.directive';
+import { UniqueCarrierTypeValidatorDirective } from './admin/carrier-type/unique-carrier-type-validator.directive';
+import { EditCarrierTypeComponent } from './admin/carrier-type/edit-carrier-type/edit-carrier-type.component';
+import { AddCarrierTypeComponent } from './admin/carrier-type/add-carrier-type/add-carrier-type.component';
 
 
 
@@ -118,7 +121,10 @@ import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-val
     IncotermsComponent,
     EditBranchComponent,
     AddBranchComponent,
-    UniqueBranchValidatorDirective
+    UniqueBranchValidatorDirective,
+    UniqueCarrierTypeValidatorDirective,
+    EditCarrierTypeComponent,
+    AddCarrierTypeComponent
 
 
   ],
@@ -167,6 +173,7 @@ import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-val
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent, EditShipmentComponent, EditBranchComponent, AddBranchComponent]
+  entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,
+                    EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent]
 })
 export class AppModule { }

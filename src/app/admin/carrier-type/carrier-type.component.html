@@ -1,3 +1,30 @@
-<p>
-  carrier-type works!
-</p>
+
+<div class="container add-button">
+  <button mat-raised-button (click)="openDialogAddCarrierType()" color="primary">
+    <mat-icon>add</mat-icon>
+    <span>Add new carrier type </span>
+  </button>
+</div>
+
+
+<div *ngIf="check" class="container ">
+  <div id="card" *ngFor="let carrierType of carrierTypes">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><h4>{{carrierType.name}} </h4></mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <img mat-card-image src="https://previews.123rf.com/images/3ddock/3ddock1202/3ddock120200013/12135075-types-of-transport.jpg" alt="Photo of a carrier types ">
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditCarrierType(carrierType)">Edit</button>
+        <button class="mat-raised-button mat-warn"  mat-button (click)="deleteCarrierType(carrierType)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
