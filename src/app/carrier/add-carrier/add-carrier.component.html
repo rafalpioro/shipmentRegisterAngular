@@ -5,7 +5,7 @@
 
 
       <mat-form-field fxFlex="auto"  >
-        <input  class="form-control"  matInput formControlName="name" placeholder="Name" minlength="2" maxlength="150">
+        <input   matInput formControlName="name" placeholder="Name" minlength="2" maxlength="150">
         <mat-error >
           <span *ngIf="form.get('name').hasError('required')">Name is required</span>
           <span *ngIf="form.get('name').hasError('UniqueCarrierValidator')">Name already exists</span>

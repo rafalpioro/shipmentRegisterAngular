@@ -3,7 +3,7 @@
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="carrierType.name" value={{carrierType.name}}>
+    <input  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="carrierType.name" value={{carrierType.name}}>
     <mat-error >
       <span *ngIf="!form.get('name').valid ">Name is required</span>
     </mat-error>

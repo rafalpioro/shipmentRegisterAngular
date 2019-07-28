@@ -3,7 +3,7 @@
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control"  type="text" matInput formControlName="number" placeholder="NUmber" [(ngModel)]="project.number" value={{project.number}}>
+    <input   type="text" matInput formControlName="number" placeholder="NUmber" [(ngModel)]="project.number" value={{project.number}}>
     <mat-error >
       <span *ngIf="form.get('number').hasError('required')">Number is required</span>
       <span *ngIf="form.get('number').hasError('uniqueProjectValidator')">Number already exists</span>
@@ -13,7 +13,7 @@
   </mat-form-field>
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control" matInput formControlName="name"   placeholder="Name" [(ngModel)]="project.name" value={{project.name}} >
+    <input   matInput formControlName="name"   placeholder="Name" [(ngModel)]="project.name" value={{project.name}} >
     <mat-error>
       <span *ngIf="form.get('name').hasError('required')">Name is required</span>
       <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
@@ -41,14 +41,14 @@
   </mat-form-field>
 
   <mat-form-field fxFlex="auto">
-    <input type="date" class="form-control" matInput formControlName="startDate" placeholder="StartDate" [(ngModel)]="project.startDate" value={{project.startDate}}>
+    <input type="date"  matInput formControlName="startDate" placeholder="StartDate" [(ngModel)]="project.startDate" value={{project.startDate}}>
     <mat-error >
       <span *ngIf="!form.get('startDate').valid ">Start date is required</span>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field fxFlex="auto">
-    <input type="date" class="form-control" matInput formControlName="endDate" placeholder="EndDate" [(ngModel)]="project.endDate" value={{project.endDate}}>
+    <input type="date"  matInput formControlName="endDate" placeholder="EndDate" [(ngModel)]="project.endDate" value={{project.endDate}}>
     <mat-error >
       <span *ngIf="!form.get('endDate').valid ">End date is required</span>
     </mat-error>

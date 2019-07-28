@@ -5,7 +5,7 @@
 
 
       <mat-form-field fxFlex="auto"  >
-        <input  class="form-control"  matInput formControlName="name" placeholder="Name" minlength="2" maxlength="80">
+        <input   matInput formControlName="name" placeholder="Name" minlength="2" maxlength="80">
         <mat-error >
           <span *ngIf="form.get('name').hasError('required')">Name is required</span>
           <span *ngIf="form.get('name').hasError('UniqueRecipientValidator')">Name already exists</span>
@@ -15,7 +15,7 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto">
-        <input  class="form-control" matInput formControlName="address"   placeholder="Address"  >
+        <input   matInput formControlName="address"   placeholder="Address"  >
         <mat-error>
           <span *ngIf="form.get('address').hasError('required')">Address is required</span>
         </mat-error>
@@ -32,7 +32,7 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto" >
-        <input  class="form-control" matInput formControlName="city" placeholder="City">
+        <input   matInput formControlName="city" placeholder="City">
         <mat-error >
           <span *ngIf="form.get('city').hasError('required') ">City is required</span>
           <span *ngIf="form.get('city').hasError('minlength') ">City name is too short</span>
@@ -42,7 +42,7 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto">
-        <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code">
+        <input   matInput formControlName="zipCode" placeholder="Zip Code">
         <mat-error >
           <span *ngIf="form.get('zipCode').hasError('required') ">Zip code is required</span>
           <span *ngIf="form.get('zipCode').hasError('minlength') ">Zip code is too short</span>

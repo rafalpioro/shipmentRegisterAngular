@@ -12,9 +12,10 @@ export class ClientApiService {
 
   constructor(private http:HttpClient) { }
 
-  allClientWithPagination(page: string, size: string): Observable<Client[]>{
+  allClientWithPagination(sort: string, page: string, size: string): Observable<Client[]>{
     return this.http.get<Client[]>(this.URL, {
       params: new HttpParams()
+        .append('sort', sort)
         .append('page', page)
         .append('size', size)
     })

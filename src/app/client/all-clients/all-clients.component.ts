@@ -7,6 +7,7 @@ import {ClientsDatasource} from "./clients-datasource";
 import {ClientApiService} from "../client-api.service";
 import {Client} from "../../model/client";
 import {EditClientComponent} from "../edit-client/edit-client.component";
+import {merge} from "rxjs";
 
 @Component({
   selector: 'app-all-clients',
@@ -27,6 +28,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
 
   private page: string = '0';
   private size: string = '5';
+  private sorting: string = 'asc';
 
   constructor(public authenticationService: AuthenticationService, private clientService: ClientApiService, private router: Router, public dialog: MatDialog) { }
 
@@ -36,7 +38,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
 
   show() {
     this.dataSource = new ClientsDatasource(this.clientService);
-    this.dataSource.loadClients(this.page,this.size);
+    this.dataSource.loadClients(this.sorting, this.page,this.size);
     this.clientService.allClients().subscribe(res=>{this.total_count = res.length});
   }
 
@@ -49,10 +51,19 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
         })
       )
       .subscribe();
+
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+    merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        tap(() => this.loadClientPage())
+      )
+      .subscribe();
+
   }
 
   loadClientPage() {
     this.dataSource.loadClients(
+      this.sort.direction,
       this.paginator.pageIndex.toString(),
       this.paginator.pageSize.toString());
   }

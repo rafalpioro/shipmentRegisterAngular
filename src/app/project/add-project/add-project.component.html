@@ -4,7 +4,7 @@
     <div fxLayout="column" fxLayoutAlign="center " fxLayoutGap="10px">
 
       <mat-form-field fxFlex="auto"  >
-        <input  class="form-control"  matInput formControlName="number" placeholder="Number" minlength="2" maxlength="20">
+        <input    matInput formControlName="number" placeholder="Number" minlength="2" maxlength="20">
         <mat-error >
           <span *ngIf="form.get('number').hasError('required')">Number is required</span>
           <span *ngIf="form.get('number').hasError('uniqueProjectValidator')">Number already exists</span>
@@ -14,7 +14,7 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto"  >
-        <input  class="form-control"  matInput formControlName="name" placeholder="Name">
+        <input   matInput formControlName="name" placeholder="Name">
         <mat-error >
           <span *ngIf="form.get('name').hasError('required')">Name is required</span>
           <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
@@ -42,7 +42,7 @@
       </mat-form-field>
 
       <mat-form-field fxFlex="auto">
-        <input [matDatepicker]="picker1" class="form-control" matInput formControlName="startDate" placeholder="Start date">
+        <input [matDatepicker]="picker1"  matInput formControlName="startDate" placeholder="Start date">
         <mat-error >
           <span *ngIf="form.get('startDate').hasError('required') ">Start date is required</span>
         </mat-error>
@@ -52,7 +52,7 @@
 
       <div *ngIf="selectedProjectStatus != null && selectedProjectStatus.name == 'delivered'">
       <mat-form-field fxFlex="auto">
-        <input [matDatepicker]="picker" class="form-control" matInput formControlName="endDate" placeholder="End date">
+        <input [matDatepicker]="picker"  matInput formControlName="endDate" placeholder="End date">
         <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

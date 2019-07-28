@@ -3,14 +3,14 @@
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control"  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="branch.name" value={{branch.name}}>
+    <input    type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="branch.name" value={{branch.name}}>
     <mat-error >
       <span *ngIf="!form.get('name').valid ">Name is required</span>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control" matInput formControlName="address"   placeholder="Address" [(ngModel)]="branch.address" value={{branch.address}} >
+    <input   matInput formControlName="address"   placeholder="Address" [(ngModel)]="branch.address" value={{branch.address}} >
     <mat-error>
       <span *ngIf="!form.get('address').valid ">Address is required</span>
     </mat-error>
@@ -27,14 +27,14 @@
   </mat-form-field>
 
   <mat-form-field fxFlex="auto">
-    <input  class="form-control" matInput formControlName="city" placeholder="City" [(ngModel)]="branch.city" value={{branch.city}}>
+    <input   matInput formControlName="city" placeholder="City" [(ngModel)]="branch.city" value={{branch.city}}>
     <mat-error >
       <span *ngIf="!form.get('city').valid ">City is required</span>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input  class="form-control" matInput formControlName="zipCode" placeholder="Zip Code" [(ngModel)]="branch.zipCode" value={{branch.zipCode}}>
+    <input   matInput formControlName="zipCode" placeholder="Zip Code" [(ngModel)]="branch.zipCode" value={{branch.zipCode}}>
     <mat-error >
       <span *ngIf="!form.get('zipCode').valid ">Zip code is required</span>
     </mat-error>

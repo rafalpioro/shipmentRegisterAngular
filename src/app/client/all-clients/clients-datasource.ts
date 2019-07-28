@@ -23,12 +23,12 @@ export class ClientsDatasource implements DataSource<Client> {
     this.loadingSubject.complete();
   }
 
-  loadClients(page: string, size: string) {
+  loadClients(sort: string, page: string, size: string) {
 
     this.loadingSubject.next(true);
 
     this.clientService.allClientWithPagination(
-      page, size).pipe(
+      sort, page, size).pipe(
       catchError(() => of([])),
       finalize(() => this.loadingSubject.next(false))
     )
