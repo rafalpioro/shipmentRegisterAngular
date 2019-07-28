@@ -12,6 +12,24 @@
     [ngClass]="{ 'show': navbarOpen }" >
     <ul class="navbar-nav ">
 
+      <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.getRoleFromToken()=='ROLE_ADMIN'">
+        <a data-toggle="dropdown" class="dropdown-toggle" id="admin" mat-button routerLinkActive="active-link">Admin
+          <mat-icon>verified_user</mat-icon>
+          <ul class="dropdown-menu bg-green">
+            <li><a mat-button routerLink="/admin/branches" routerLinkActive="active-link">Branches</a></li>
+            <li><a mat-button routerLink="/admin/carrier-types" routerLinkActive="active-link">Carrier types</a></li>
+            <li><a mat-button routerLink="/admin/deactivated-shipments" routerLinkActive="active-link">Deactiveded shipments</a></li>
+            <li class="dropdown-divider" ></li>
+            <li class="dropdown-submenu bg-green"><a mat-button class="dropdown-toggle" >Options</a>
+              <ul class="dropdown-menu bg-green">
+                <li><a mat-button routerLink="/admin/carrier-types" routerLinkActive="active-link">Carrier types</a></li>
+                <li><a mat-button routerLink="/admin/branches" routerLinkActive="active-link">Branches</a></li>
+              </ul>
+            </li>
+          </ul>
+        </a>
+      </li>
+
       <li class="nav-item" *ngIf="authService.isLoggedIn()" >
         <a mat-button routerLink="/carriers" routerLinkActive="active-link">Carrier
           <mat-icon>local_shipping</mat-icon>
@@ -43,19 +61,6 @@
       </li>
 
 
-      <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.getRoleFromToken()=='ROLE_ADMIN'">
-        <a data-toggle="dropdown" class="dropdown-toggle" id="admin" mat-button routerLinkActive="active-link">Admin
-          <mat-icon>verified_user</mat-icon>
-          <ul class="dropdown-menu bg-green">
-            <li><a mat-button routerLink="/admin/branches" routerLinkActive="active-link">Branches</a></li>
-            <li><a mat-button routerLink="/admin/carrier-types" routerLinkActive="active-link">Carrier types</a></li>
-            <li><a mat-button routerLink="/admin/deactivated-shipments" routerLinkActive="active-link">Deactiveded shipments</a></li>
-
-          </ul>
-        </a>
-      </li>
-
-
       <li class="nav-item" *ngIf="!authService.isLoggedIn()">
         <a mat-button routerLink="/login" routerLinkActive="active-link">Login
           <mat-icon>person</mat-icon>
@@ -71,4 +76,3 @@
     </ul>
   </div>
 </nav>
-
