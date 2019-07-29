@@ -10,23 +10,40 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class UserApiService {
 
-  private URL ="http://localhost:8080/admin-all/users";
-  private URL1 ="http://localhost:8080/admin/users";
+  private URL ="http://localhost:8080/admin-all";
+
 
   constructor(private http:HttpClient) { }
 
   allUsers(): Observable<User[]>{
 
-    return this.http.get<[]>(this.URL);
+    return this.http.get<[]>(this.URL+"/users");
   }
 
-  currentUser(email: string): Observable<User>{
-
-    return this.http.get<User>(this.URL1+'/name', {params: new HttpParams().append('email',email)});
+  addNewUser(user: User):Observable<any>{
+    return this.http.post<User>(this.URL, user);
   }
+
+  getUserByEmail(name: string): Observable<User[]>{
+    return this.http.get<User[]>(this.URL+"/name", {params: new HttpParams()
+        .append('name', name)} );
+  }
+
 
   getUserById(id: number): Observable<User>{
-    return this.http.get<User>(this.URL1 +"/"+id);
+    return this.http.get<User>(this.URL +"/"+id);
+  }
+
+  updateUser(user: User): Observable<any>{
+    return this.http.put(this.URL +"/"+user.id, user);
+  }
+
+  deactivateUser(id: number):Observable<any>{
+    return this.http.patch(this.URL+"/"+id, null);
+  }
+
+  deleteUser(id: number):Observable<any>{
+    return this.http.delete(this.URL+"/"+id);
   }
 
 }

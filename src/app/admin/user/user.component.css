@@ -1,0 +1,45 @@
+.example-card {
+  width: 300px;
+}
+
+#card{
+  display: inline-block;
+  border-width: 3px;
+  border-style: ridge;
+  margin: 1em;
+  padding: 1em;
+}
+
+.container {
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.example-header-image {
+  background-image: url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png');
+  background-size: cover;
+}
+
+.mat-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+
+img {
+  padding-top: 10px;
+  height: 150px;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  float: right;
+}
+
+h5{
+  color: indigo;
+}

@@ -82,6 +82,10 @@ import { EditCountryComponent } from './admin/country/edit-country/edit-country.
 import { UniqueIncotermValidatorDirective } from './admin/incoterms/unique-incoterm-validator.directive';
 import { AddIncotermComponent } from './admin/incoterms/add-incoterm/add-incoterm.component';
 import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-incoterm.component';
+import { RoleComponent } from './admin/role/role.component';
+import { UniqueUserValidatorDirective } from './admin/user/unique-user-validator.directive';
+import { AddUserComponent } from './admin/user/add-user/add-user.component';
+import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
 
 
 
@@ -136,7 +140,11 @@ import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-inco
     EditCountryComponent,
     UniqueIncotermValidatorDirective,
     AddIncotermComponent,
-    EditIncotermComponent
+    EditIncotermComponent,
+    RoleComponent,
+    UniqueUserValidatorDirective,
+    AddUserComponent,
+    EditUserComponent
 
 
   ],
@@ -187,6 +195,7 @@ import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-inco
   bootstrap: [AppComponent],
   entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,
                     EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent,
-                    EditCountryComponent, AddCountryComponent, AddIncotermComponent, EditIncotermComponent]
+                    EditCountryComponent, AddCountryComponent, AddIncotermComponent, EditIncotermComponent,
+                    EditUserComponent, AddUserComponent]
 })
 export class AppModule { }

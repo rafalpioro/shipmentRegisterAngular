@@ -1,11 +1,48 @@
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name  }} {{ user.email }}  {{ user.password }} {{ user.role.name }}
-  </li>
-</ul>
 
-<ul>
-  <li>{{curUser.name}}</li>
-  <li>{{curUser.role.name}}</li>
-  <li>{{curUser.email}}</li>
-</ul>
+<div class="container add-button">
+  <button mat-raised-button (click)="openDialogAddUser()" color="primary">
+    <mat-icon>add</mat-icon>
+    <span>Add new user </span>
+  </button>
+</div>
+
+
+<div *ngIf="check" class="container ">
+  <div id="card" *ngFor="let user of users">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><h4>{{user.name}} </h4></mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <img mat-card-image src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/128x128/plain/user.png" alt="Photo of a user ">
+        </div>
+
+        <div>Email</div>
+        <h5>{{user.email }}</h5>
+        <div>Role</div>
+        <h5>{{user.role.name | lowercase}}</h5>
+        <div>Active</div>
+        <h5>{{user.active }}</h5>
+
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditUser(user)">Edit</button>
+        <div class="right">
+          <button *ngIf="user.active == true" class="mat-raised-button mat-warn"  mat-button (click)="deactiveUser(user)">Deactive</button>
+          <button class="mat-raised-button mat-warn"  mat-button (click)="deleteUser(user)">Delete</button>
+
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="!check" class="container">
+  <h2 class="align-content-center">Branches do not exist!</h2>
+</div>
