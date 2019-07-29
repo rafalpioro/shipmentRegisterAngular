@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Add country</h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field fxFlex="auto">
+    <input  type="text" matInput formControlName="name" minlength="2" maxlength="150" placeholder="Name">
+    <mat-error >
+      <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+      <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
+      <span *ngIf="form.get('name').hasError('maxlength') ">Name is to long</span>
+      <span *ngIf = "!(form.get('name').hasError('required') || form.get('name').hasError('maxlength') || form.get('name').hasError('minlength'))">
+        Name already exists</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto">
+    <input  type="text" matInput formControlName="code" placeholder="Code" minlength="2" maxlength="2">
+    <mat-error >
+      <span *ngIf="!form.get('code').valid ">Code is required</span>
+      <span *ngIf="form.get('code').hasError('minlength') ">Code should have 2 chars</span>
+      <span *ngIf="form.get('code').hasError('maxlength') ">Code should have 2 characters</span>
+    </mat-error>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [disabled]="!form.valid" (click)="save()">Save</button>
+</mat-dialog-actions>

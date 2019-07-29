@@ -1,11 +1,13 @@
-<h2 mat-dialog-title>Edit carrierType <span class="green">{{carrierType.name}} </span></h2>
+<h2 mat-dialog-title>Edit incoterms <span class="green">{{incoterms.name}} </span></h2>
 
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field fxFlex="auto">
-    <input  type="text" matInput formControlName="name" placeholder="Name" [(ngModel)]="carrierType.name" value={{carrierType.name}}>
+    <input  type="text" matInput minlength="3" maxlength="3" formControlName="name" placeholder="Name" [(ngModel)]="incoterms.name" value={{incoterms.name}}>
     <mat-error >
       <span *ngIf="!form.get('name').valid ">Name is required</span>
+      <span *ngIf="form.get('code').hasError('minlength') ">Code should have 2 characters</span>
+      <span *ngIf="form.get('code').hasError('maxlength') ">Code should have 2 characters</span>
     </mat-error>
   </mat-form-field>
 
@@ -14,3 +16,4 @@
   <button class="mat-raised-button" (click)="close()">Close</button>
   <button class="mat-raised-button mat-primary" [disabled]="!form.valid" (click)="save()">Save</button>
 </mat-dialog-actions>
+

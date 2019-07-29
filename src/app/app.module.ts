@@ -76,6 +76,12 @@ import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-val
 import { UniqueCarrierTypeValidatorDirective } from './admin/carrier-type/unique-carrier-type-validator.directive';
 import { EditCarrierTypeComponent } from './admin/carrier-type/edit-carrier-type/edit-carrier-type.component';
 import { AddCarrierTypeComponent } from './admin/carrier-type/add-carrier-type/add-carrier-type.component';
+import { UniqueCountryValidatorDirective } from './admin/country/unique-country-validator.directive';
+import { AddCountryComponent } from './admin/country/add-country/add-country.component';
+import { EditCountryComponent } from './admin/country/edit-country/edit-country.component';
+import { UniqueIncotermValidatorDirective } from './admin/incoterms/unique-incoterm-validator.directive';
+import { AddIncotermComponent } from './admin/incoterms/add-incoterm/add-incoterm.component';
+import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-incoterm.component';
 
 
 
@@ -124,7 +130,13 @@ import { AddCarrierTypeComponent } from './admin/carrier-type/add-carrier-type/a
     UniqueBranchValidatorDirective,
     UniqueCarrierTypeValidatorDirective,
     EditCarrierTypeComponent,
-    AddCarrierTypeComponent
+    AddCarrierTypeComponent,
+    UniqueCountryValidatorDirective,
+    AddCountryComponent,
+    EditCountryComponent,
+    UniqueIncotermValidatorDirective,
+    AddIncotermComponent,
+    EditIncotermComponent
 
 
   ],
@@ -174,6 +186,7 @@ import { AddCarrierTypeComponent } from './admin/carrier-type/add-carrier-type/a
   ],
   bootstrap: [AppComponent],
   entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,
-                    EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent]
+                    EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent,
+                    EditCountryComponent, AddCountryComponent, AddIncotermComponent, EditIncotermComponent]
 })
 export class AppModule { }

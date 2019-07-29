@@ -1,0 +1,22 @@
+.example-card {
+  width: 300px;
+}
+
+#card{
+  display: inline-block;
+  border-width: 3px;
+  border-style: ridge;
+  margin: 1em;
+  padding: 1em;
+}
+
+.container {
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.example-header-image {
+  background-image: url('https://news.ewmfg.com/hs-fs/hubfs/Incoterms-East-West-Mfg.jpg?width=1500&name=Incoterms-East-West-Mfg.jpg');
+  background-size: cover;
+}

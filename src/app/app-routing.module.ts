@@ -17,6 +17,8 @@ import {AddShipmentComponent} from "./shipment/add-shipment/add-shipment.compone
 import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
 import {BranchComponent} from "./admin/branch/branch.component";
 import {CarrierTypeComponent} from "./admin/carrier-type/carrier-type.component";
+import {CountryComponent} from "./admin/country/country.component";
+import {IncotermsComponent} from "./admin/incoterms/incoterms.component";
 
 
 const routes: Routes = [
@@ -39,8 +41,26 @@ const routes: Routes = [
     data: { role: ['ROLE_ADMIN']}
   },
   {
+    path: 'admin/countries',
+    component: CountryComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
     path: 'admin/carrier-types',
     component: CarrierTypeComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'admin/incoterms',
+    component: IncotermsComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'admin/users',
+    component: UserComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },

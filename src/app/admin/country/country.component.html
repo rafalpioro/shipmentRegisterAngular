@@ -1,3 +1,30 @@
-<p>
-  country works!
-</p>
+
+<div class="container add-button">
+  <button mat-raised-button (click)="openDialogAddCountry()" color="primary">
+    <mat-icon>add</mat-icon>
+    <span>Add new country </span>
+  </button>
+</div>
+
+
+<div *ngIf="check" class="container ">
+  <div id="card" *ngFor="let country of countries">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><h4>{{country.name}} </h4></mat-card-title>
+        <mat-card-subtitle>{{country.code}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <img mat-card-image src="https://news.bitcoin.com/wp-content/uploads/2019/07/libra.png" alt="Photo of a country ">
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditCountry(country)">Edit</button>
+        <button class="mat-raised-button mat-warn"  mat-button (click)="deleteCountry(country)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

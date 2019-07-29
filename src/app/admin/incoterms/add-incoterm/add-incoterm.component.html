@@ -3,10 +3,13 @@
 <mat-dialog-content [formGroup]="form" fxLayout="column">
 
   <mat-form-field fxFlex="auto">
-    <input   type="text" matInput formControlName="name" placeholder="Name"  >
+    <input   type="text" matInput formControlName="name" placeholder="Name" minlength="3" maxlength="3" >
     <mat-error >
       <span *ngIf="form.get('name').hasError('required')">Name is required</span>
-      <span *ngIf = "!form.get('name').hasError('required')">Name already exists</span>
+      <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
+      <span *ngIf="form.get('name').hasError('maxlength') ">Name is to long</span>
+      <span *ngIf = "!(form.get('name').hasError('required') || form.get('name').hasError('maxlength') || form.get('name').hasError('minlength'))">
+        Name already exists</span>
     </mat-error>
   </mat-form-field>
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CarrierType} from "../../model/carrier-type";
 import {Incoterms} from "../../model/incoterms";
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +14,23 @@ export class IncotermsApiService {
   constructor(private http:HttpClient) { }
 
   allIncoterms(): Observable<Incoterms[]> {
-    return this.http.get<CarrierType[]>(this.URL);
+    return this.http.get<Incoterms[]>(this.URL);
   }
 
-  addNewIncoterms(incoterms: Incoterms):Observable<any>{
-    return this.http.post<Incoterms>(this.URL, incoterms);
+  getIncotermByName(name: string): Observable<Incoterms[]>{
+    return this.http.get<Incoterms[]>(this.URL+"/name", {params: new HttpParams()
+        .append('name', name)} );
   }
 
-  deleteIncoterms(id: number):Observable<any>{
+  addNewIncoterm(incoterm: Incoterms):Observable<any>{
+    return this.http.post<Incoterms>(this.URL, incoterm);
+  }
+
+  deleteIncoterm(id: number):Observable<any>{
     return this.http.delete(this.URL+"/"+id);
   }
 
-  updateIncoterms(incoterms: Incoterms): Observable<any>{
-    return this.http.put(this.URL +"/"+incoterms.id,incoterms);
+  updateIncoterm(incoterm: Incoterms): Observable<any>{
+    return this.http.put(this.URL +"/"+incoterm.id, incoterm);
   }
 }
