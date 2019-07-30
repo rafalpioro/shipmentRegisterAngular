@@ -1,3 +1,39 @@
-<p>
-  add-user works!
-</p>
+<h2 mat-dialog-title>Add user </h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column">
+
+  <mat-form-field fxFlex="auto">
+    <input    type="text" matInput formControlName="name" placeholder="Name" minlength="2" maxlength="60" >
+    <mat-error >
+      <span *ngIf="form.get('name').hasError('required')">Name is required</span>
+      <span *ngIf="form.get('name').hasError('minlength') ">Name is too short</span>
+      <span *ngIf="form.get('name').hasError('maxlength') ">Name is to long</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="auto">
+    <input   matInput formControlName="email"   placeholder="Email"  email>
+    <mat-error >
+      <span *ngIf="form.get('email').hasError('required')">Name is required</span>
+      <span *ngIf="form.get('email').hasError('email') ">It is not an email</span>
+      <span *ngIf = "!(form.get('email').hasError('required') || form.get('email').hasError('email'))">
+        Name already exists</span>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select formControlName="role"   placeholder="Role" >
+      <mat-option *ngFor = "let role of roles"  [value]="role">{{role.name}}</mat-option>
+      <mat-error >
+        <span *ngIf="!form.get('role').valid ">Role is required</span>
+      </mat-error>
+    </mat-select>
+  </mat-form-field>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [disabled]="!form.valid" (click)="save()">Save</button>
+</mat-dialog-actions>

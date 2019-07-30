@@ -10,23 +10,23 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class UserApiService {
 
-  private URL ="http://localhost:8080/admin-all";
+  private URL ="http://localhost:8080/admin-all/users";
 
 
   constructor(private http:HttpClient) { }
 
   allUsers(): Observable<User[]>{
 
-    return this.http.get<[]>(this.URL+"/users");
+    return this.http.get<[]>(this.URL);
   }
 
   addNewUser(user: User):Observable<any>{
     return this.http.post<User>(this.URL, user);
   }
 
-  getUserByEmail(name: string): Observable<User[]>{
+  getUserByEmail(email: string): Observable<User[]>{
     return this.http.get<User[]>(this.URL+"/name", {params: new HttpParams()
-        .append('name', name)} );
+        .append('email', email)} );
   }
 
 
