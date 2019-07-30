@@ -86,6 +86,9 @@ import { RoleComponent } from './admin/role/role.component';
 import { UniqueUserValidatorDirective } from './admin/user/unique-user-validator.directive';
 import { AddUserComponent } from './admin/user/add-user/add-user.component';
 import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
+import { AddProjectStatusComponent } from './admin/project-status/add-project-status/add-project-status.component';
+import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
+import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 
 
 
@@ -144,7 +147,10 @@ import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
     RoleComponent,
     UniqueUserValidatorDirective,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    AddProjectStatusComponent,
+    EditProjectStatusComponent,
+    UniqueProjectStatusValidatorDirective
 
 
   ],
@@ -196,6 +202,6 @@ import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
   entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,
                     EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent,
                     EditCountryComponent, AddCountryComponent, AddIncotermComponent, EditIncotermComponent,
-                    EditUserComponent, AddUserComponent]
+                    EditUserComponent, AddUserComponent, EditProjectStatusComponent, AddProjectStatusComponent]
 })
 export class AppModule { }

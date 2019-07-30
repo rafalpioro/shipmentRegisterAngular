@@ -1,3 +1,29 @@
-<p>
-  project-status works!
-</p>
+<div class="container add-button">
+  <button mat-raised-button (click)="openDialogAddProjectStatus()" color="primary">
+    <mat-icon>add</mat-icon>
+    <span>Add new carrier type </span>
+  </button>
+</div>
+
+
+<div *ngIf="check" class="container ">
+  <div id="card" *ngFor="let projectStatus of projectStatuses">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><h4>{{projectStatus.name}} </h4></mat-card-title>
+
+      </mat-card-header>
+
+      <mat-card-actions>
+        <button class="mat-raised-button mat-primary"  mat-button (click)="openDialogEditProjectStatus(projectStatus)">Edit</button>
+        <button class="mat-raised-button mat-warn"  mat-button (click)="deleteProjectStatus(projectStatus)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+<div *ngIf="!check" class="container">
+  <h2 class="align-content-center">Project do not exist!</h2>
+</div>

@@ -19,6 +19,7 @@ import {BranchComponent} from "./admin/branch/branch.component";
 import {CarrierTypeComponent} from "./admin/carrier-type/carrier-type.component";
 import {CountryComponent} from "./admin/country/country.component";
 import {IncotermsComponent} from "./admin/incoterms/incoterms.component";
+import {ProjectStatusComponent} from "./admin/project-status/project-status.component";
 
 
 const routes: Routes = [
@@ -49,6 +50,12 @@ const routes: Routes = [
   {
     path: 'admin/carrier-types',
     component: CarrierTypeComponent,
+    canActivate: [AuthenticationGuard],
+    data: { role: ['ROLE_ADMIN']}
+  },
+  {
+    path: 'admin/project-statuses',
+    component: ProjectStatusComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
