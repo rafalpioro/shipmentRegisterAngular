@@ -7,6 +7,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div *ngIf="authService.isLoggedIn() && authService.getTimeToLogOut()>0">
+    Time to log out {{authService.getTimeToLogOut() }}
+  </div>
 
   <div class="collapse navbar-collapse justify-content-end"
     [ngClass]="{ 'show': navbarOpen }" >

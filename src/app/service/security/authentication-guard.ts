@@ -37,7 +37,7 @@ export class AuthenticationGuard implements CanActivate{
 
   private isAuthorised(allowedRoles: string[]): boolean {
     if (allowedRoles == null || allowedRoles.length === 0) {
-      return true;
+      return false;
     }
     this.role = this.authService.getRoleFromToken();
     return allowedRoles.includes(this.role);

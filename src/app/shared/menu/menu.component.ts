@@ -1,19 +1,20 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../service/security/authentication.service";
-import {Subscription} from "rxjs";
+
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit{
 
   title: string = "ShipmentRegister";
   navbarOpen = false;
   isAuth: boolean;
   role: string;
   isAdmin: boolean;
+  data;
 
 
   constructor(private authService: AuthenticationService) {
@@ -24,6 +25,7 @@ export class MenuComponent implements OnInit {
     this.isAuth = this.authService.isLoggedIn();
 
   }
+
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
@@ -40,8 +42,14 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  check() {
+  startTimer( timeLeft): number {
+   return  setInterval(() => {
+      if(timeLeft > 0) {
+        timeLeft--;
+      } else {
+        0;
+      }
+    },1000)}
 
-  }
 
 }

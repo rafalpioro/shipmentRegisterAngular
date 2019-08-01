@@ -25,6 +25,13 @@ export class JwtInterceptor implements HttpInterceptor {
   private handleErrors(err: HttpErrorResponse): Observable<any> {
     if (err.status === 401) {
       this.auth.redirectToUrl = this.router.url;
+      this.auth.logout();
+      this.router.navigate(['/login']);
+      return of(err.message);
+    }
+    if (err.status === 403) {
+      this.auth.redirectToUrl = this.router.url;
+      this.auth.logout();
       this.router.navigate(['/login']);
       return of(err.message);
     }

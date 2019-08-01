@@ -24,8 +24,6 @@ export class AuthenticationService {
       .subscribe((res: HttpResponse<any>) => {
 
         this.saveToken(res.headers.get('Authorization'));
-
-
         this.router.navigate([this.redirectToUrl]);
 
       });
@@ -59,6 +57,16 @@ export class AuthenticationService {
     return decodedAccessToken.role;
   }
 
+  public getTimeToLogOut(): number {
+
+      let decodedAccessToken = this.getDecodedAccessToken(this.getToken());
+      let now = Date.now();
+      let expire = new Date();
+      expire.setMilliseconds(decodedAccessToken.exp);
+      console.log("time left " + Math.round(decodedAccessToken.exp - (now/1000)));
+      return  Math.round(decodedAccessToken.exp - (now/1000));
+  }
+
 
   public logout(): void {
 
@@ -80,6 +88,16 @@ export class AuthenticationService {
     catch(Error){
       return null;
     }
+  }
+
+  startTimer( timeLeft): number {
+    return setInterval(() => {
+      if(timeLeft > 0) {
+        timeLeft--;
+      } else {
+        0;
+      }
+    },1000)
   }
 
 }

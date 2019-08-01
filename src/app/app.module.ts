@@ -89,6 +89,8 @@ import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
 import { AddProjectStatusComponent } from './admin/project-status/add-project-status/add-project-status.component';
 import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
 import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
+import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
+
 
 
 
@@ -150,7 +152,8 @@ import { UniqueProjectStatusValidatorDirective } from './admin/project-status/un
     EditUserComponent,
     AddProjectStatusComponent,
     EditProjectStatusComponent,
-    UniqueProjectStatusValidatorDirective
+    UniqueProjectStatusValidatorDirective,
+    MinuteSecondsPipe
 
 
   ],
