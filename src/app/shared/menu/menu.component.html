@@ -7,10 +7,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div *ngIf="authService.isLoggedIn() && authService.getTimeToLogOut()>0">
-    Time to log out {{authService.getTimeToLogOut() }}
-  </div>
-
   <div class="collapse navbar-collapse justify-content-end"
     [ngClass]="{ 'show': navbarOpen }" >
     <ul class="navbar-nav ">
@@ -81,3 +77,25 @@
     </ul>
   </div>
 </nav>
+<div class="container timer">
+  <div class="panel">
+    <div class="panel-heading">
+      <div *ngIf="authService.isLoggedIn() && authService.getTimeToLogOut()>0 && authService.getTimeToLogOut()<100">
+        Time to log out {{authService.getTimeToLogOut() | minuteSeconds}}
+      </div>
+
+      <div *ngIf="authService.isLoggedIn() && authService.getTimeToLogOut()<0">
+        Session has expired
+      </div>
+    </div>
+    <div class="panel-body" *ngIf="authService.isLoggedIn() && authService.getTimeToLogOut()>0 && authService.getTimeToLogOut()<100">
+      <mat-progress-bar
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="value + (100- authService.getTimeToLogOut())">
+      </mat-progress-bar>
+    </div>
+  </div>
+</div>
+

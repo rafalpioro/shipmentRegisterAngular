@@ -63,7 +63,6 @@ export class AuthenticationService {
       let now = Date.now();
       let expire = new Date();
       expire.setMilliseconds(decodedAccessToken.exp);
-      console.log("time left " + Math.round(decodedAccessToken.exp - (now/1000)));
       return  Math.round(decodedAccessToken.exp - (now/1000));
   }
 

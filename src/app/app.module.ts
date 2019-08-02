@@ -90,6 +90,7 @@ import { AddProjectStatusComponent } from './admin/project-status/add-project-st
 import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
 import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -185,7 +186,8 @@ import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
     MatRippleModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ],
   providers: [
     CountryApiService,

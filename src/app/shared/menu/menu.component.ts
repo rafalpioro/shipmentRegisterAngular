@@ -16,6 +16,10 @@ export class MenuComponent implements OnInit{
   isAdmin: boolean;
   data;
 
+  color = 'primary';
+  mode = 'determinate';
+  value = 0;
+
 
   constructor(private authService: AuthenticationService) {
 
