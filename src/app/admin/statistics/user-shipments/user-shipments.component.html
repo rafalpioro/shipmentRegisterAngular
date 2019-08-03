@@ -1,0 +1,29 @@
+<div class="container" style="text-align:center">
+  <h1 class="card-header">
+    Welcome to {{ title }}!
+  </h1>
+
+
+  <div class="col" >
+    <div class="row" >
+      <h4>
+        Shipments per user
+      </h4>
+    </div>
+    <div class="row" >
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="data"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel">
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>

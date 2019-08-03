@@ -18,6 +18,7 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -91,6 +92,8 @@ import { EditProjectStatusComponent } from './admin/project-status/edit-project-
 import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { StatisticsComponent } from './admin/statistics/statistics.component';
+import { UserShipmentsComponent } from './admin/statistics/user-shipments/user-shipments.component';
 
 
 
@@ -154,8 +157,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AddProjectStatusComponent,
     EditProjectStatusComponent,
     UniqueProjectStatusValidatorDirective,
-    MinuteSecondsPipe
-
+    MinuteSecondsPipe,
+    StatisticsComponent,
+    UserShipmentsComponent
 
   ],
   imports: [
@@ -187,7 +191,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatCheckboxModule,
     MatTabsModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgxChartsModule
   ],
   providers: [
     CountryApiService,
