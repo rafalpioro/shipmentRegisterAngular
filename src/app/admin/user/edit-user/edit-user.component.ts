@@ -1,13 +1,10 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {CarrierType} from "../../../model/carrier-type";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
-import {CarrierTypeApiService} from "../../carrier-type/carrier-type-api.service";
-import {Carrier} from "../../../model/carrier";
 import {Role} from "../../../model/role";
 import {RoleApiService} from "../../role/role-api.service";
 import {User} from "../../../model/user";
-import {UniqueUserValidator} from "../unique-user-validator.directive";
+
 
 @Component({
   selector: 'app-edit-user',
