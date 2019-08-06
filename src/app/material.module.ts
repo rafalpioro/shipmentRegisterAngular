@@ -13,6 +13,7 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -35,7 +36,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatRippleModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ],
   exports: [
     MatIconModule,
@@ -56,7 +58,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatRippleModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

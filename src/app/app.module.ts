@@ -4,7 +4,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,6 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from "./service/security/jwt-interceptor";
 import {TokenizerService} from "./service/tokenizer-service";
-import { UserComponent } from './admin/user/user.component';
 import {UserApiService} from "./admin/user/user-api.service";
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { AllShipmentsComponent } from './shipment/all-shipments/all-shipments.component';
@@ -25,14 +24,12 @@ import {ShipmentApiService} from "./shipment/shipment-api.service";
 import { AllRecipientsComponent } from './recipient/all-recipients/all-recipients.component';
 import {RecipientApiService} from "./recipient/recipient-api.service";
 import { EditRecipientComponent } from './recipient/edit-recipient/edit-recipient.component';
-import { CountryComponent } from './admin/country/country.component';
 import {CountryApiService} from "./admin/country/country-api.service";
 import { UniqueRecipientValidatorDirective } from './recipient/unique-recipient-validator.directive';
 import { AddRecipientComponent } from './recipient/add-recipient/add-recipient.component';
 import { AddCarrierComponent } from './carrier/add-carrier/add-carrier.component';
 import { AllCarriersComponent } from './carrier/all-carriers/all-carriers.component';
 import { EditCarrierComponent } from './carrier/edit-carrier/edit-carrier.component';
-import { CarrierTypeComponent } from './admin/carrier-type/carrier-type.component';
 import {CarrierTypeApiService} from "./admin/carrier-type/carrier-type-api.service";
 import {CarrierApiService} from "./carrier/carrier-api.service";
 import {UniqueCarrierValidatorDirective} from "./carrier/unique-carrier-validator.directive";
@@ -40,7 +37,6 @@ import { AddClientComponent } from './client/add-client/add-client.component';
 import { AllClientsComponent } from './client/all-clients/all-clients.component';
 import { EditClientComponent } from './client/edit-client/edit-client.component';
 import { UniqueClientValidatorDirective } from './client/unique-client-validator.directive';
-import { ProjectStatusComponent } from './admin/project-status/project-status.component';
 import { AddProjectComponent } from './project/add-project/add-project.component';
 import { AllProjectsComponent } from './project/all-projects/all-projects.component';
 import { EditProjectComponent } from './project/edit-project/edit-project.component';
@@ -49,14 +45,9 @@ import {ProjectApiService} from "./project/project-api.service";
 import {ProjectStatusApiService} from "./admin/project-status/project-status-api.service";
 import { AddShipmentComponent } from './shipment/add-shipment/add-shipment.component';
 import { EditShipmentComponent } from './shipment/edit-shipment/edit-shipment.component';
-import { TransactionTypeComponent } from './admin/transaction-type/transaction-type.component';
 import {TransactionTypeApiService} from "./admin/transaction-type/transaction-type-api.service";
-// import { BranchComponent } from './admin/branch/branch.component';
-import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status.component';
 import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
 import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
-import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
-import { IncotermsComponent } from './admin/incoterms/incoterms.component';
 import { EditBranchComponent } from './admin/branch/edit-branch/edit-branch.component';
 import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component";
 import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-validator.directive';
@@ -69,7 +60,6 @@ import { EditCountryComponent } from './admin/country/edit-country/edit-country.
 import { UniqueIncotermValidatorDirective } from './admin/incoterms/unique-incoterm-validator.directive';
 import { AddIncotermComponent } from './admin/incoterms/add-incoterm/add-incoterm.component';
 import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-incoterm.component';
-import { RoleComponent } from './admin/role/role.component';
 import { UniqueUserValidatorDirective } from './admin/user/unique-user-validator.directive';
 import { AddUserComponent } from './admin/user/add-user/add-user.component';
 import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
@@ -77,9 +67,6 @@ import { AddProjectStatusComponent } from './admin/project-status/add-project-st
 import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
 import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { StatisticsComponent } from './admin/statistics/statistics.component';
-import { UserShipmentsComponent } from './admin/statistics/user-shipments/user-shipments.component';
 import {AdminModule} from "./admin/admin.module";
 import {MaterialModule} from "./material.module";
 
@@ -96,36 +83,27 @@ import {MaterialModule} from "./material.module";
     ShipmentComponent,
     MenuComponent,
     LoginComponent,
-    UserComponent,
     WelcomeComponent,
     AllShipmentsComponent,
     AllRecipientsComponent,
     EditRecipientComponent,
-    CountryComponent,
     UniqueRecipientValidatorDirective,
     UniqueCarrierValidatorDirective,
     AddRecipientComponent,
     AddCarrierComponent,
     AllCarriersComponent,
     EditCarrierComponent,
-    CarrierTypeComponent,
     AddClientComponent,
     AllClientsComponent,
     EditClientComponent,
     UniqueClientValidatorDirective,
-    ProjectStatusComponent,
     AddProjectComponent,
     AllProjectsComponent,
     EditProjectComponent,
     UniqueProjectValidatorDirective,
     AddShipmentComponent,
     EditShipmentComponent,
-    TransactionTypeComponent,
-    // BranchComponent,
-    ShipmentStatusComponent,
     MyShipmentsComponent,
-    DeactivatedShipmentComponent,
-    IncotermsComponent,
     EditBranchComponent,
     AddBranchComponent,
     UniqueBranchValidatorDirective,
@@ -138,7 +116,6 @@ import {MaterialModule} from "./material.module";
     UniqueIncotermValidatorDirective,
     AddIncotermComponent,
     EditIncotermComponent,
-    RoleComponent,
     UniqueUserValidatorDirective,
     AddUserComponent,
     EditUserComponent,
@@ -146,8 +123,7 @@ import {MaterialModule} from "./material.module";
     EditProjectStatusComponent,
     UniqueProjectStatusValidatorDirective,
     MinuteSecondsPipe,
-    StatisticsComponent,
-    UserShipmentsComponent,
+
 
   ],
   imports: [
@@ -159,8 +135,6 @@ import {MaterialModule} from "./material.module";
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MatProgressBarModule,
-    NgxChartsModule,
     AdminModule,
     MaterialModule
   ],
