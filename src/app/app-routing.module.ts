@@ -6,7 +6,7 @@ import {ProjectComponent} from "./project/project.component";
 import {ShipmentComponent} from "./shipment/shipment.component";
 import {AuthenticationGuard} from "./service/security/authentication-guard";
 import {LoginComponent} from "./login/login.component";
-import {UserComponent} from "./admin/user/user.component";
+
 import {RecipientComponent} from "./recipient/recipient.component";
 import {WelcomeComponent} from "./shared/welcome/welcome.component";
 import {AddRecipientComponent} from "./recipient/add-recipient/add-recipient.component";
@@ -14,70 +14,11 @@ import {AddCarrierComponent} from "./carrier/add-carrier/add-carrier.component";
 import {AddClientComponent} from "./client/add-client/add-client.component";
 import {AddProjectComponent} from "./project/add-project/add-project.component";
 import {AddShipmentComponent} from "./shipment/add-shipment/add-shipment.component";
-import {DeactivatedShipmentComponent} from "./admin/deactivated-shipment/deactivated-shipment.component";
-import {BranchComponent} from "./admin/branch/branch.component";
-import {CarrierTypeComponent} from "./admin/carrier-type/carrier-type.component";
-import {CountryComponent} from "./admin/country/country.component";
-import {IncotermsComponent} from "./admin/incoterms/incoterms.component";
-import {ProjectStatusComponent} from "./admin/project-status/project-status.component";
-import {UserShipmentsComponent} from "./admin/statistics/user-shipments/user-shipments.component";
+
 
 
 const routes: Routes = [
-  {
-    path: 'admin',
-    component: UserComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/deactivated-shipments',
-    component: DeactivatedShipmentComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/branches',
-    component: BranchComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/countries',
-    component: CountryComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/carrier-types',
-    component: CarrierTypeComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/project-statuses',
-    component: ProjectStatusComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/incoterms',
-    component: IncotermsComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/users',
-    component: UserComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
-  {
-    path: 'admin/stat/user-shipment',
-    component: UserShipmentsComponent,
-    canActivate: [AuthenticationGuard],
-    data: { role: ['ROLE_ADMIN']}
-  },
+
   {
     path: 'carriers',
     component: CarrierComponent,

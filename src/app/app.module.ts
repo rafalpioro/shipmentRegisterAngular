@@ -69,6 +69,7 @@ import { UniqueProjectStatusValidatorDirective } from './admin/project-status/un
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
 import {AdminModule} from "./admin/admin.module";
 import {MaterialModule} from "./material.module";
+import {AdminRoutingModule} from "./admin/admin-routing.module";
 
 
 
@@ -124,7 +125,6 @@ import {MaterialModule} from "./material.module";
     UniqueProjectStatusValidatorDirective,
     MinuteSecondsPipe,
 
-
   ],
   imports: [
     BrowserModule,
@@ -136,7 +136,8 @@ import {MaterialModule} from "./material.module";
     FlexLayoutModule,
     ReactiveFormsModule,
     AdminModule,
-    MaterialModule
+    MaterialModule,
+    AdminRoutingModule
   ],
   providers: [
     CountryApiService,
