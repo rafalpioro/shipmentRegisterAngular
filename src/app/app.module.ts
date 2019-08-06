@@ -1,23 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule  } from '@angular/core';
-import { MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {
-  MatButtonModule, MatDialogModule,
-  MatFormFieldModule,
-  MatInputModule, MatListModule, MatOptionModule, MatPaginatorModule,
-  MatProgressSpinnerModule, MatSelectModule, MatSortModule,
-  MatTableModule
-} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import {MatCardModule} from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatMenuModule} from '@angular/material/menu';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -65,7 +51,7 @@ import { AddShipmentComponent } from './shipment/add-shipment/add-shipment.compo
 import { EditShipmentComponent } from './shipment/edit-shipment/edit-shipment.component';
 import { TransactionTypeComponent } from './admin/transaction-type/transaction-type.component';
 import {TransactionTypeApiService} from "./admin/transaction-type/transaction-type-api.service";
-import { BranchComponent } from './admin/branch/branch.component';
+// import { BranchComponent } from './admin/branch/branch.component';
 import { ShipmentStatusComponent } from './admin/shipment-status/shipment-status.component';
 import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
 import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
@@ -94,6 +80,8 @@ import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { StatisticsComponent } from './admin/statistics/statistics.component';
 import { UserShipmentsComponent } from './admin/statistics/user-shipments/user-shipments.component';
+import {AdminModule} from "./admin/admin.module";
+import {MaterialModule} from "./material.module";
 
 
 
@@ -133,7 +121,7 @@ import { UserShipmentsComponent } from './admin/statistics/user-shipments/user-s
     AddShipmentComponent,
     EditShipmentComponent,
     TransactionTypeComponent,
-    BranchComponent,
+    // BranchComponent,
     ShipmentStatusComponent,
     MyShipmentsComponent,
     DeactivatedShipmentComponent,
@@ -159,40 +147,22 @@ import { UserShipmentsComponent } from './admin/statistics/user-shipments/user-s
     UniqueProjectStatusValidatorDirective,
     MinuteSecondsPipe,
     StatisticsComponent,
-    UserShipmentsComponent
+    UserShipmentsComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
     FormsModule,
     FlexLayoutModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
     ReactiveFormsModule,
-    MatTableModule,
-    MatDialogModule,
-    MatPaginatorModule,
-    MatListModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRippleModule,
-    MatCheckboxModule,
-    MatTabsModule,
-    MatMenuModule,
     MatProgressBarModule,
-    NgxChartsModule
+    NgxChartsModule,
+    AdminModule,
+    MaterialModule
   ],
   providers: [
     CountryApiService,
