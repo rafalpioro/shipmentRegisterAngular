@@ -67,10 +67,7 @@ import { AddProjectStatusComponent } from './admin/project-status/add-project-st
 import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
 import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
-import {AdminModule} from "./admin/admin.module";
 import {MaterialModule} from "./material.module";
-import {AdminRoutingModule} from "./admin/admin-routing.module";
-
 
 
 
@@ -135,9 +132,8 @@ import {AdminRoutingModule} from "./admin/admin-routing.module";
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    AdminModule,
     MaterialModule,
-    AdminRoutingModule
+
   ],
   providers: [
     CountryApiService,

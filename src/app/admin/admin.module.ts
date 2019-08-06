@@ -15,6 +15,7 @@ import {StatisticsComponent} from "./statistics/statistics.component";
 import {UserShipmentsComponent} from "./statistics/user-shipments/user-shipments.component";
 import {TransactionTypeComponent} from "./transaction-type/transaction-type.component";
 import {UserComponent} from "./user/user.component";
+import {AdminRoutingModule} from "./admin-routing.module";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {UserComponent} from "./user/user.component";
   imports: [
     CommonModule,
     MaterialModule,
-    NgxChartsModule
+    NgxChartsModule,
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

@@ -12,59 +12,60 @@ import {UserShipmentsComponent} from "./statistics/user-shipments/user-shipments
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: UserComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/deactivated-shipments',
+    path: 'deactivated-shipments',
     component: DeactivatedShipmentComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/branches',
+    path: 'branches',
     component: BranchComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/countries',
+    path: 'countries',
     component: CountryComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/carrier-types',
+    path: 'carrier-types',
     component: CarrierTypeComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/project-statuses',
+    path: 'project-statuses',
     component: ProjectStatusComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/incoterms',
+    path: 'incoterms',
     component: IncotermsComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/users',
+    path: 'users',
     component: UserComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
   {
-    path: 'admin/stat/user-shipment',
+    path: 'stat/user-shipment',
     component: UserShipmentsComponent,
     canActivate: [AuthenticationGuard],
     data: { role: ['ROLE_ADMIN']}
   },
+
   ];
 
 @NgModule({
