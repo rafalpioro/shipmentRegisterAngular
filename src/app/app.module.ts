@@ -48,24 +48,6 @@ import { EditShipmentComponent } from './shipment/edit-shipment/edit-shipment.co
 import {TransactionTypeApiService} from "./admin/transaction-type/transaction-type-api.service";
 import { MyShipmentsComponent } from './shipment/all-shipments/my-shipments/my-shipments.component';
 import {AdminShipmentApiService} from "./admin/deactivated-shipment/admin-shipment-api.service";
-import { EditBranchComponent } from './admin/branch/edit-branch/edit-branch.component';
-import {AddBranchComponent} from "./admin/branch/add-branch/add-branch.component";
-import { UniqueBranchValidatorDirective } from './admin/branch/unique-branch-validator.directive';
-import { UniqueCarrierTypeValidatorDirective } from './admin/carrier-type/unique-carrier-type-validator.directive';
-import { EditCarrierTypeComponent } from './admin/carrier-type/edit-carrier-type/edit-carrier-type.component';
-import { AddCarrierTypeComponent } from './admin/carrier-type/add-carrier-type/add-carrier-type.component';
-import { UniqueCountryValidatorDirective } from './admin/country/unique-country-validator.directive';
-import { AddCountryComponent } from './admin/country/add-country/add-country.component';
-import { EditCountryComponent } from './admin/country/edit-country/edit-country.component';
-import { UniqueIncotermValidatorDirective } from './admin/incoterms/unique-incoterm-validator.directive';
-import { AddIncotermComponent } from './admin/incoterms/add-incoterm/add-incoterm.component';
-import { EditIncotermComponent } from './admin/incoterms/edit-incoterm/edit-incoterm.component';
-import { UniqueUserValidatorDirective } from './admin/user/unique-user-validator.directive';
-import { AddUserComponent } from './admin/user/add-user/add-user.component';
-import { EditUserComponent } from './admin/user/edit-user/edit-user.component';
-import { AddProjectStatusComponent } from './admin/project-status/add-project-status/add-project-status.component';
-import { EditProjectStatusComponent } from './admin/project-status/edit-project-status/edit-project-status.component';
-import { UniqueProjectStatusValidatorDirective } from './admin/project-status/unique-project-status-validator.directive';
 import { MinuteSecondsPipe } from './shared/minute-seconds.pipe';
 import {MaterialModule} from "./material.module";
 
@@ -102,24 +84,6 @@ import {MaterialModule} from "./material.module";
     AddShipmentComponent,
     EditShipmentComponent,
     MyShipmentsComponent,
-    EditBranchComponent,
-    AddBranchComponent,
-    UniqueBranchValidatorDirective,
-    UniqueCarrierTypeValidatorDirective,
-    EditCarrierTypeComponent,
-    AddCarrierTypeComponent,
-    UniqueCountryValidatorDirective,
-    AddCountryComponent,
-    EditCountryComponent,
-    UniqueIncotermValidatorDirective,
-    AddIncotermComponent,
-    EditIncotermComponent,
-    UniqueUserValidatorDirective,
-    AddUserComponent,
-    EditUserComponent,
-    AddProjectStatusComponent,
-    EditProjectStatusComponent,
-    UniqueProjectStatusValidatorDirective,
     MinuteSecondsPipe,
 
   ],
@@ -151,8 +115,6 @@ import {MaterialModule} from "./material.module";
   ],
   bootstrap: [AppComponent],
   entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,
-                    EditShipmentComponent, EditBranchComponent, AddBranchComponent, AddCarrierTypeComponent, EditCarrierTypeComponent,
-                    EditCountryComponent, AddCountryComponent, AddIncotermComponent, EditIncotermComponent,
-                    EditUserComponent, AddUserComponent, EditProjectStatusComponent, AddProjectStatusComponent]
+                    EditShipmentComponent]
 })
 export class AppModule { }
