@@ -14,18 +14,19 @@ export class AuthenticationService {
 
   static readonly TOKEN_STORAGE_KEY = 'Token';
 
-  redirectToUrl: string = '/';
-
+  redirectToUrl: string = '';
+  error: boolean = false;
 
   constructor(private router: Router, private tokenService: TokenizerService) { }
 
   public login(credentials: Credentials): void {
     this.tokenService.getResponseHeaders(credentials)
       .subscribe((res: HttpResponse<any>) => {
-
+        this.error = false;
         this.saveToken(res.headers.get('Authorization'));
         this.router.navigate([this.redirectToUrl]);
-
+      }, error1 => {
+        this.error = true;
       });
   }
 
@@ -35,6 +36,9 @@ export class AuthenticationService {
     }
   }
 
+  public getError() {
+    return this.error;
+  }
 
   public getToken(): string {
 

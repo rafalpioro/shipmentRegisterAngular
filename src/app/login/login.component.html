@@ -8,7 +8,7 @@
           <form fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="login(f)">
             <mat-form-field>
               <input type="email" matInput placeholder="Enter your email" ngModel name="email" email required #emInput="ngModel">
-              <mat-error *ngIf="emInput.hasError('required')">Fild must not be empty</mat-error>
+              <mat-error *ngIf="emInput.hasError('required')">Field must not be empty</mat-error>
               <mat-error *ngIf="!emInput.hasError('required')">Email is invalid</mat-error>
             </mat-form-field>
             <mat-form-field hintLabel="Should be at least 4 character long">
@@ -17,6 +17,7 @@
               <mat-error>Has to be at least 4 characters long</mat-error>
             </mat-form-field>
             <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+            <div *ngIf=authService.getError() class="alert alert-danger">{{errorMessage}}</div>
           </form>
         </mat-card-content>
       </mat-card>

@@ -111,7 +111,7 @@ import {MaterialModule} from "./material.module";
     CarrierApiService,
     TransactionTypeApiService,
     AdminShipmentApiService,
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
+     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
   ],
   bootstrap: [AppComponent],
   entryComponents: [EditRecipientComponent, EditCarrierComponent, EditClientComponent, EditProjectComponent,

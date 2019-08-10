@@ -14,11 +14,13 @@ import {NgForm} from "@angular/forms";
 export class LoginComponent implements OnInit {
 
   credentials: Credentials = new Credentials('', '');
+  errorMessage = "Username or password is incorrect";
 
 
   constructor(private authService: AuthenticationService ) { }
 
   ngOnInit() {
+
   }
 
   public login(form: NgForm): void {
