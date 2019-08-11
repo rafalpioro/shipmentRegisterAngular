@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {ShipmentsDatasource} from "../shipments-datasource";
 import {Shipment} from "../../../model/shipment";
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort} from "@angular/material";
 import {AuthenticationService} from "../../../service/security/authentication.service";
@@ -24,7 +23,7 @@ export class MyShipmentsComponent implements AfterViewInit, OnInit {
   data: Shipment;
 
   @ViewChild(MatSort, {static:false}) sort: MatSort;
-  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static:true}) paginator: MatPaginator;
 
   private page: string = '0';
   private size: string = '5';
@@ -38,7 +37,8 @@ export class MyShipmentsComponent implements AfterViewInit, OnInit {
   show() {
     this.dataSource = new MyShipmentDatasource(this.shipmentService, this.authenticationService);
     this.dataSource.loadShipments(this.page,this.size);
-    this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
+    this.shipmentService.allUserShipments(Number(this.authenticationService.getIdFromToken())).subscribe(res=>{this.total_count = res.length
+    console.log(res.length)});
   }
 
   ngAfterViewInit() {
@@ -66,7 +66,7 @@ export class MyShipmentsComponent implements AfterViewInit, OnInit {
     if(confirm("Are you sure you want to delete the shipment??")){
       this.shipmentService.toggleShipmentActive(shipment.id).subscribe(
         res =>{
-          this.shipmentService.allShipments().subscribe(res=>{this.total_count = res.length});
+          this.shipmentService.allUserShipments(Number(this.authenticationService.getIdFromToken())).subscribe(res=>{this.total_count = res.length});
           this.loadShipmentPage();
         },
         err=>{alert("Could not delete project")}

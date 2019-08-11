@@ -34,6 +34,10 @@ export class ShipmentApiService {
     return this.http.get<Shipment[]>(this.URL);
   }
 
+  allUserShipments(id: number) :Observable<Shipment[]> {
+    return this.http.get<Shipment[]>(this.URL+"/user/"+id);
+  }
+
   getShipmentById(id: number): Observable<Shipment>{
     return this.http.get<Shipment>(this.URL +"/"+id);
   }

@@ -11,7 +11,7 @@
 <div class="tbn">
   <mat-tab-group>
     <mat-tab label="All shipments">
-      <mat-table class="mat-elevation-z8">
+      <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
 
         <div class="spinner-container" *ngIf="dataSource.loading$ | async">
           <mat-spinner></mat-spinner>
