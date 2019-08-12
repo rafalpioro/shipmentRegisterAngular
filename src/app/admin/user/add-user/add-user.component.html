@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Add user </h2>
 
-<mat-dialog-content [formGroup]="form" fxLayout="column">
+<mat-dialog-content [formGroup]="form" fxLayout="column" fxFlexAlign="center">
 
   <mat-form-field fxFlex="auto">
     <input    type="text" matInput formControlName="name" placeholder="Name" minlength="2" maxlength="60" >
@@ -25,10 +25,10 @@
   <mat-form-field>
     <mat-select formControlName="role"   placeholder="Role" >
       <mat-option *ngFor = "let role of roles"  [value]="role">{{role.name}}</mat-option>
-      <mat-error >
-        <span *ngIf="!form.get('role').valid ">Role is required</span>
-      </mat-error>
     </mat-select>
+    <mat-error >
+      <span *ngIf="!form.get('role').valid ">Role is required</span>
+    </mat-error>
   </mat-form-field>
 
 
