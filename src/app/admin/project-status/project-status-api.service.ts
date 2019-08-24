@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ProjectStatus} from "../../model/project-status";
+import {environment} from "../../../environments/environment";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {ProjectStatus} from "../../model/project-status";
 })
 export class ProjectStatusApiService {
 
-  private URL ="http://localhost:8080/admin/projectstatus";
+  private URL =environment.baseUrl+"/admin/projectstatus";
 
   constructor(private http:HttpClient) { }
 

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CarrierType} from "../../model/carrier-type";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrierTypeApiService {
 
-  private URL ="http://localhost:8080/admin/carriertypes";
+  private URL =environment.baseUrl+"/admin/carriertypes";
 
   constructor(private http:HttpClient) { }
 

@@ -3,13 +3,14 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Shipment} from "../../model/shipment";
 import {CountUserShipment} from "../../model/stat/count-user-shipment";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminShipmentApiService {
 
-  private URL ="http://localhost:8080/admin-all";
+  private URL =environment.baseUrl+"/admin-all";
 
   constructor(private http:HttpClient) { }
 

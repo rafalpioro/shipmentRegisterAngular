@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {Carrier} from "../model/carrier";
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import {Carrier} from "../model/carrier";
 })
 export class CarrierApiService {
 
-  private URL = "http://localhost:8080/carriers";
+  private URL =environment.baseUrl+"/carriers";
 
   constructor(private http: HttpClient) {
   }

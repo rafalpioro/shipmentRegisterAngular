@@ -3,13 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ProjectStatus} from "../../model/project-status";
 import {TransactionType} from "../../model/transaction-type";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionTypeApiService {
 
-  private URL ="http://localhost:8080/admin/transactiontypes";
+  private URL =environment.baseUrl+"/admin/transactiontypes";
 
   constructor(private http:HttpClient) { }
 

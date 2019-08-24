@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Country} from "../../model/country";
+import {environment} from "../../../environments/environment";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {Country} from "../../model/country";
 })
 export class CountryApiService {
 
-  private URL ="http://localhost:8080/admin/countries";
+  private URL =environment.baseUrl+"/admin/countries";
 
   constructor(private http:HttpClient) { }
 

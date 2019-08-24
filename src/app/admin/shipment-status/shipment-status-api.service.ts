@@ -3,13 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {ShipmentStatus} from "../../model/shipment-status";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShipmentStatusApiService {
 
-  private URL ="http://localhost:8080/admin/shipmentstatus";
+  private URL =environment.baseUrl+"/admin/shipmentstatus";
 
   constructor(private http:HttpClient) { }
 

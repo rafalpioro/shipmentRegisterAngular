@@ -3,13 +3,14 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {Recipient} from "../model/recipient";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipientApiService {
 
-  private URL ="http://localhost:8080/recipients";
+  private URL =environment.baseUrl+"/recipients";
 
   constructor(private http:HttpClient) { }
 
