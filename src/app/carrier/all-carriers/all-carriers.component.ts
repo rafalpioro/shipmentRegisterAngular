@@ -25,7 +25,7 @@ export class AllCarriersComponent implements OnInit {
   @ViewChild(MatSort, {static:false}) sort: MatSort;
   @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
 
-  constructor(private authenticationService: AuthenticationService, private carrierService: CarrierApiService, private router: Router, public dialog: MatDialog) { }
+  constructor(public authenticationService: AuthenticationService, private carrierService: CarrierApiService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.show();

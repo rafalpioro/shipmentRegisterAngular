@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 })
 export class BranchApiService {
 
-  private URL =environment.baseUrl + "/admin/branches";
+   URL =environment.baseUrl + "/admin/branches";
 
   constructor(private http:HttpClient) { }
 

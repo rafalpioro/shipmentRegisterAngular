@@ -30,7 +30,7 @@ export class AllShipmentsComponent implements AfterViewInit, OnInit {
   private page: string = '0';
   private size: string = '5';
 
-  constructor(private authenticationService: AuthenticationService, private shipmentService: ShipmentApiService, private router: Router, public dialog: MatDialog) { }
+  constructor(public authenticationService: AuthenticationService, private shipmentService: ShipmentApiService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.show();

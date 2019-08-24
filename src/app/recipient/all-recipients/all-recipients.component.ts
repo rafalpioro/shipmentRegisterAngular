@@ -31,7 +31,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
   private page: string = '0';
   private size: string = '5';
 
-  constructor(private authenticationService: AuthenticationService, private recipientService: RecipientApiService, private router: Router, public dialog: MatDialog) { }
+  constructor(public authenticationService: AuthenticationService, private recipientService: RecipientApiService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.show();

@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit{
   value = 0;
 
 
-  constructor(private authService: AuthenticationService) {
+  constructor(public authService: AuthenticationService) {
 
   }
 

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage = "Username or password is incorrect";
 
 
-  constructor(private authService: AuthenticationService ) { }
+  constructor(public authService: AuthenticationService ) { }
 
   ngOnInit() {
 

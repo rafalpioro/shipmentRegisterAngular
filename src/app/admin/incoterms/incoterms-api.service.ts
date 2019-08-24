@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 })
 export class IncotermsApiService {
 
-  private URL =environment.baseUrl+"/admin/incoterms";
+  URL =environment.baseUrl+"/admin/incoterms";
 
   constructor(private http:HttpClient) { }
 

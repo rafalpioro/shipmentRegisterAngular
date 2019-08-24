@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class CarrierTypeApiService {
 
-  private URL =environment.baseUrl+"/admin/carriertypes";
+  URL =environment.baseUrl+"/admin/carriertypes";
 
   constructor(private http:HttpClient) { }
 

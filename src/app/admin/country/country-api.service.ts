@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 })
 export class CountryApiService {
 
-  private URL =environment.baseUrl+"/admin/countries";
+  URL =environment.baseUrl+"/admin/countries";
 
   constructor(private http:HttpClient) { }
 
