@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectStatus} from "../../model/project-status";
 import {Client} from "../../model/client";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectApiService} from "../../project/project-api.service";
-import {ProjectStatusApiService} from "../../admin/project-status/project-status-api.service";
 import {ClientApiService} from "../../client/client-api.service";
 import {Router} from "@angular/router";
-import {uniqueProjectValidator} from "../../project/unique-project-validator.directive";
 import {Project} from "../../model/project";
 import {Branch} from "../../model/branch";
 import {User} from "../../model/user";
