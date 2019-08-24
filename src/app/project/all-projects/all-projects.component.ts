@@ -22,7 +22,7 @@ export class AllProjectsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['number', 'name', 'client', 'projectStatus', 'startDate' ,'endDate', 'edit'];
   displayedColumnsForViewer = ['number', 'name', 'client', 'projectStatus', 'startDate' ,'endDate'];
-  private URL =environment.baseUrl;
+
 
   dataSource :  ProjectsDatasource;
   public total_count: number;
@@ -64,7 +64,7 @@ export class AllProjectsComponent implements AfterViewInit, OnInit {
   }
 
   addProject(){
-    this.router.navigate([this.URL+'projects/add']);
+    this.router.navigate(['/projects/add']);
   }
 
   deactivateProject(project: Project){

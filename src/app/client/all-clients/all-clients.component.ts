@@ -19,7 +19,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['name', 'address', 'city', 'country', 'zipCode' ,'edit'];
   displayedColumnsForViewer = ['name', 'address', 'city', 'country', 'zipCode'];
-  private URL =environment.baseUrl;
+
 
   dataSource :  ClientsDatasource;
   public total_count: number;
@@ -71,7 +71,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
   }
 
   addClient(){
-    this.router.navigate([this.URL +'clients/add']);
+    this.router.navigate(['/clients/add']);
   }
 
   deactivateClient(client: Client){

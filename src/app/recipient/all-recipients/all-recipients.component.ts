@@ -19,7 +19,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['name', 'address', 'city', 'country', 'zipCode' ,'edit'];
   displayedColumnsForViewer = ['name', 'address', 'city', 'country', 'zipCode'];
-  private URL =environment.baseUrl
+
 
   dataSource :  RecipientsDatasource;
   public total_count: number;
@@ -61,7 +61,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
   }
 
   addRecipient(){
-    this.router.navigate([this.URL+'recipients/add']);
+    this.router.navigate(['/recipients/add']);
   }
 
   deactivateRecipient(recipient: Recipient){

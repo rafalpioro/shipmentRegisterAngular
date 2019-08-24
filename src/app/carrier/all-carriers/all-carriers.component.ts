@@ -68,7 +68,7 @@ export class AllCarriersComponent implements OnInit {
   }
 
   addCarrier(){
-    this.router.navigate([this.URL+'carriers/add']);
+    this.router.navigate(['/carriers/add']);
   }
 
   deactivateCarrier(carrier: Carrier){

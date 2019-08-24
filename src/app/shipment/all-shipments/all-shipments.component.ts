@@ -18,7 +18,7 @@ export class AllShipmentsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn', 'edit'];
   displayedColumnsForViewer = ['branch', 'user', 'project', 'recipient', 'incoterms', 'shipmentStatus', 'sendDate', 'carrier', 'deliveryDate' , 'pod',  'transactionType', 'mrn'];
-  private URL =environment.baseUrl
+
 
   dataSource :  ShipmentsDatasource;
   public total_count: number;
@@ -60,7 +60,7 @@ export class AllShipmentsComponent implements AfterViewInit, OnInit {
   }
 
   addShipment(){
-    this.router.navigate([this.URL+'shipments/add']);
+    this.router.navigate(['/shipments/add']);
   }
 
   deactivateShipment(shipment: Shipment){
