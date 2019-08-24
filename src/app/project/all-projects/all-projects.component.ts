@@ -11,6 +11,7 @@ import {ProjectsDatasource} from "./projects-datasource";
 import {ProjectApiService} from "../project-api.service";
 import {Project} from "../../model/project";
 import {EditProjectComponent} from "../edit-project/edit-project.component";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-all-projects',
@@ -21,6 +22,7 @@ export class AllProjectsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['number', 'name', 'client', 'projectStatus', 'startDate' ,'endDate', 'edit'];
   displayedColumnsForViewer = ['number', 'name', 'client', 'projectStatus', 'startDate' ,'endDate'];
+  private URL =environment.baseUrl;
 
   dataSource :  ProjectsDatasource;
   public total_count: number;
@@ -62,7 +64,7 @@ export class AllProjectsComponent implements AfterViewInit, OnInit {
   }
 
   addProject(){
-    this.router.navigate(['projects/add']);
+    this.router.navigate([this.URL+'projects/add']);
   }
 
   deactivateProject(project: Project){

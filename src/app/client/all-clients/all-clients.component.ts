@@ -8,6 +8,7 @@ import {ClientApiService} from "../client-api.service";
 import {Client} from "../../model/client";
 import {EditClientComponent} from "../edit-client/edit-client.component";
 import {merge} from "rxjs";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-all-clients',
@@ -18,6 +19,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['name', 'address', 'city', 'country', 'zipCode' ,'edit'];
   displayedColumnsForViewer = ['name', 'address', 'city', 'country', 'zipCode'];
+  private URL =environment.baseUrl;
 
   dataSource :  ClientsDatasource;
   public total_count: number;
@@ -69,7 +71,7 @@ export class AllClientsComponent implements AfterViewInit, OnInit {
   }
 
   addClient(){
-    this.router.navigate(['clients/add']);
+    this.router.navigate([this.URL +'clients/add']);
   }
 
   deactivateClient(client: Client){

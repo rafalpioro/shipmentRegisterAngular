@@ -7,6 +7,7 @@ import {RecipientsDatasource} from "./recipients-datasource";
 import {tap} from "rxjs/operators";
 import {EditRecipientComponent} from "../edit-recipient/edit-recipient.component";
 import {AuthenticationService} from "../../service/security/authentication.service";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['name', 'address', 'city', 'country', 'zipCode' ,'edit'];
   displayedColumnsForViewer = ['name', 'address', 'city', 'country', 'zipCode'];
+  private URL =environment.baseUrl
 
   dataSource :  RecipientsDatasource;
   public total_count: number;
@@ -59,7 +61,7 @@ export class AllRecipientsComponent implements AfterViewInit, OnInit {
   }
 
   addRecipient(){
-    this.router.navigate(['recipients/add']);
+    this.router.navigate([this.URL+'recipients/add']);
   }
 
   deactivateRecipient(recipient: Recipient){

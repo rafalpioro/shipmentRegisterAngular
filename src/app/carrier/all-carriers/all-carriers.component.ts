@@ -6,6 +6,7 @@ import {CarrierApiService} from "../carrier-api.service";
 import {AuthenticationService} from "../../service/security/authentication.service";
 import {EditRecipientComponent} from "../../recipient/edit-recipient/edit-recipient.component";
 import {EditCarrierComponent} from "../edit-carrier/edit-carrier.component";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AllCarriersComponent implements OnInit {
   displayedColumnsForViewer =  ['name', 'carrierType'];
   dataSource :  MatTableDataSource<Carrier>;
   data: Carrier;
+  private URL =environment.baseUrl
 
   @ViewChild(MatSort, {static:false}) sort: MatSort;
   @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
@@ -66,7 +68,7 @@ export class AllCarriersComponent implements OnInit {
   }
 
   addCarrier(){
-    this.router.navigate(['carriers/add']);
+    this.router.navigate([this.URL+'carriers/add']);
   }
 
   deactivateCarrier(carrier: Carrier){
