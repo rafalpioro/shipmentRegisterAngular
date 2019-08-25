@@ -64,7 +64,7 @@ export class EditShipmentComponent implements OnInit {
   createForm(){
     this.form = this.fb.group({
       branch: [this.shipment.branch,  Validators.required ],
-      user: [this.shipment.user],
+      user: [this.shipment.userr],
       project: [this.shipment.project,Validators.required],
       recipient: [this.shipment.recipient, Validators.required],
       shipmentStatus: [this.shipment.shipmentStatus, Validators.required],

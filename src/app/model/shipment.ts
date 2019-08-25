@@ -21,7 +21,7 @@ export interface Shipment {
   isActive: boolean;
   pod: boolean;
   mrn: string;
-  user: Userr;
+  userr: Userr;
   transactionType: TransactionType;
 
 }

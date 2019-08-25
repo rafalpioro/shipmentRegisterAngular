@@ -7,7 +7,7 @@ import {tap} from "rxjs/operators";
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort} from "@angular/material";
 import {AuthenticationService} from "../../service/security/authentication.service";
 import {EditShipmentComponent} from "../edit-shipment/edit-shipment.component";
-import {environment} from "../../../environments/environment";
+
 
 @Component({
   selector: 'app-all-shipments',

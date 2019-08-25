@@ -47,7 +47,7 @@ export class AddShipmentComponent implements OnInit {
   shipmentStat: ShipmentStatus = null;
   export_: TransactionType = null;
   id: string;
-  user: Userr;
+  userr: Userr;
 
   constructor(private fb: FormBuilder,
               private authenticationService: AuthenticationService,
@@ -76,7 +76,7 @@ export class AddShipmentComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.authenticationService.getIdFromToken();
-    this.userService.getUserById(Number(this.id)).subscribe(value => this.user = value);
+    this.userService.getUserById(Number(this.id)).subscribe(value => this.userr = value);
   }
 
 
@@ -84,7 +84,7 @@ export class AddShipmentComponent implements OnInit {
     this.form = this.fb.group({
       id: [null],
       branch: ['',  Validators.required ],
-      user: [null],
+      userr: [null],
       project: ['',Validators.required],
       recipient: ['', Validators.required],
       incoterms: [null, Validators.required],
@@ -101,7 +101,7 @@ export class AddShipmentComponent implements OnInit {
 
   save() {
     const shipment: Shipment = Object.assign({}, this.form.value);
-    shipment.user = this.user;
+    shipment.userr = this.userr;
     this.shipmentService.addNewShipment(shipment).subscribe(value => {
       this.router.navigate(['shipments']);
     }, error =>{
