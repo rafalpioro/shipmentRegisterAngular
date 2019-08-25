@@ -34,7 +34,7 @@ export class AddShipmentComponent implements OnInit {
   clients: Client[];
   projects: Project[];
   recipients: Recipient[];
-  incotermss: Incoterms[]
+  incotermss: Incoterms[];
   shipmentStatuses: ShipmentStatus[];
   carriers: Carrier[];
   transactionTypes: TransactionType[];
