@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 import {uniqueProjectValidator} from "../../project/unique-project-validator.directive";
 import {Project} from "../../model/project";
 import {Branch} from "../../model/branch";
-import {User} from "../../model/user";
+import {Userr} from "../../model/userr";
 import {Recipient} from "../../model/recipient";
 import {ShipmentStatus} from "../../model/shipment-status";
 import {Carrier} from "../../model/carrier";
@@ -37,7 +37,7 @@ export class AddShipmentComponent implements OnInit {
   clients: Client[];
   projects: Project[];
   recipients: Recipient[];
-  incotermss: Incoterms[]
+  incotermss: Incoterms[];
   shipmentStatuses: ShipmentStatus[];
   carriers: Carrier[];
   transactionTypes: TransactionType[];
@@ -47,7 +47,7 @@ export class AddShipmentComponent implements OnInit {
   shipmentStat: ShipmentStatus = null;
   export_: TransactionType = null;
   id: string;
-  user: User;
+  user: Userr;
 
   constructor(private fb: FormBuilder,
               private authenticationService: AuthenticationService,

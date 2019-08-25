@@ -39,21 +39,5 @@ export class MenuComponent implements OnInit{
     this.authService.logout();
   }
 
-  checkAdmin() {
-    if(this.isAuth == true) {
-
-      return this.isAdmin = (this.role === "ROLE_ADMIN");
-    }
-  }
-
-  startTimer( timeLeft): number {
-   return  setInterval(() => {
-      if(timeLeft > 0) {
-        timeLeft--;
-      } else {
-        0;
-      }
-    },1000)}
-
 
 }

@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {Role} from "../../../model/role";
 import {RoleApiService} from "../../role/role-api.service";
-import {User} from "../../../model/user";
+import {Userr} from "../../../model/userr";
 
 
 @Component({
@@ -19,7 +19,7 @@ export class EditUserComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private dialogRef: MatDialogRef<EditUserComponent>,
               private roleService: RoleApiService,
-              @Inject(MAT_DIALOG_DATA) public user: User) {
+              @Inject(MAT_DIALOG_DATA) public user: Userr) {
 
     roleService.allRoles().subscribe(value => this.roles = value);
     this.createForm();

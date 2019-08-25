@@ -16,7 +16,7 @@ export class UserShipmentsComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'User';
+  xAxisLabel = 'Userr';
   showYAxisLabel = true;
   yAxisLabel = 'Quantity';
   timeline = true;

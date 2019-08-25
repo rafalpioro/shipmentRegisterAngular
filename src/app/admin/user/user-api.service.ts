@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from "../../model/user";
+import {Userr} from "../../model/userr";
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
@@ -16,26 +16,26 @@ export class UserApiService {
 
   constructor(private http:HttpClient) { }
 
-  allUsers(): Observable<User[]>{
+  allUsers(): Observable<Userr[]>{
 
     return this.http.get<[]>(this.URL);
   }
 
-  addNewUser(user: User):Observable<any>{
-    return this.http.post<User>(this.URL, user);
+  addNewUser(user: Userr):Observable<any>{
+    return this.http.post<Userr>(this.URL, user);
   }
 
-  getUserByEmail(email: string): Observable<User[]>{
-    return this.http.get<User[]>(this.URL+"/name", {params: new HttpParams()
+  getUserByEmail(email: string): Observable<Userr[]>{
+    return this.http.get<Userr[]>(this.URL+"/name", {params: new HttpParams()
         .append('email', email)} );
   }
 
 
-  getUserById(id: number): Observable<User>{
-    return this.http.get<User>(this.URL +"/"+id);
+  getUserById(id: number): Observable<Userr>{
+    return this.http.get<Userr>(this.URL +"/"+id);
   }
 
-  updateUser(user: User): Observable<any>{
+  updateUser(user: Userr): Observable<any>{
     return this.http.put(this.URL +"/"+user.id, user);
   }
 

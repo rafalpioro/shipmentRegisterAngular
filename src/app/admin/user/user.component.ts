@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserApiService} from "./user-api.service";
-import {User} from "../../model/user";
+import {Userr} from "../../model/userr";
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {AddUserComponent} from "./add-user/add-user.component";
@@ -16,9 +16,9 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserApiService, public dialog: MatDialog) { }
 
-  users: User[];
+  users: Userr[];
   check: boolean = false;
-  data: User;
+  data: Userr;
 
   ngOnInit() {
     this.loadUser();
@@ -38,7 +38,7 @@ export class UserComponent implements OnInit {
     })
   }
 
-  openDialogEditUser(user: User){
+  openDialogEditUser(user: Userr){
 
     const dialogConfig = new MatDialogConfig();
     this.data = user;
@@ -83,11 +83,11 @@ export class UserComponent implements OnInit {
       })
   }
 
-  deleteUser(user:User) {
+  deleteUser(user:Userr) {
     this.userService.deleteUser(user.id).subscribe(value => this.loadUser() )
   }
 
-  deactiveUser(user:User) {
+  deactiveUser(user:Userr) {
     this.userService.deactivateUser(user.id).subscribe(value => this.loadUser() )
   }
 }

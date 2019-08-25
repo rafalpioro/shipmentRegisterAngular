@@ -3,7 +3,7 @@ import {Branch} from "./branch";
 import {Project} from "./project";
 import {Carrier} from "./carrier";
 import {ShipmentStatus} from "./shipment-status";
-import {User} from "./user";
+import {Userr} from "./userr";
 import {TransactionType} from "./transaction-type";
 import {Incoterms} from "./incoterms";
 
@@ -21,7 +21,7 @@ export interface Shipment {
   isActive: boolean;
   pod: boolean;
   mrn: string;
-  user: User;
+  user: Userr;
   transactionType: TransactionType;
 
 }
